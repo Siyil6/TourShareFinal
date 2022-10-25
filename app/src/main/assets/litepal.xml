@@ -1,12 +1,13 @@
 <?xml  version="1.0" encoding="utf-8" ?>
 <litepal>
     <dbname value = "tourshare" ></dbname>
-    <version value = "1"> </version>
+    <version value = "2"> </version>
     <list>
         <mapping class = "com.example.tourshare.bean.Command"/>
         <mapping class = "com.example.tourshare.bean.User"/>
         <mapping class = "com.example.tourshare.bean.LikeBean"/>
         <mapping class = "com.example.tourshare.bean.CommentBean"/>
+        <mapping class = "com.example.tourshare.bean.SearchHis"/>
     </list>
 
 </litepal>

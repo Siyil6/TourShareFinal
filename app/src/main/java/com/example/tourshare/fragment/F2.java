@@ -19,11 +19,19 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tourshare.R;
+import com.example.tourshare.adapter.SearchHisAdapter;
 import com.example.tourshare.base.BaseFragment;
+import com.example.tourshare.bean.SearchHis;
+import com.example.tourshare.bean.SqliteUtils;
 import com.example.tourshare.ui.SearchActivity;
 import com.example.tourshare.ui.SharkActivity;
+import com.example.tourshare.utils.PreferencesUtils;
+
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -31,6 +39,8 @@ import butterknife.BindView;
 public class F2 extends BaseFragment {
     @BindView(R.id.iv_shake) ImageView ivShake;
     @BindView(R.id.edt_search) AppCompatEditText edt_search;
+    @BindView(R.id.rv_his)  RecyclerView rv_his;
+
     private static final String TAG = "=========";
     private static final int SENSOR_SHAKE = 10;
     private SensorManager sensorManager;
@@ -48,6 +58,10 @@ public class F2 extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        manager.setOrientation(RecyclerView.HORIZONTAL);
+        rv_his.setLayoutManager(manager);
+
         sensorManager = (SensorManager) _mActivity.getSystemService(SENSOR_SERVICE);
         vibrator = (Vibrator) _mActivity.getSystemService(VIBRATOR_SERVICE);
         edt_search.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +71,7 @@ public class F2 extends BaseFragment {
             }
         });
     }
+
     /**
      * 重力感应监听
      */
@@ -149,6 +164,7 @@ public class F2 extends BaseFragment {
             // The first parameter is the Listener, the second parameter is the resulting sensor type, and the third parameter value is the frequency at which sensor information is obtained
             sensorManager.registerListener(sensorEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
         }
+        initDrawRecyclerView();
     }
 
     @Override
@@ -158,5 +174,24 @@ public class F2 extends BaseFragment {
             // off listener
             sensorManager.unregisterListener(sensorEventListener);
         }
+    }
+
+
+
+    private    void  initDrawRecyclerView(){
+
+
+        List<SearchHis> searchHisList  = SqliteUtils.selectSearchHisByUser(Long.valueOf(PreferencesUtils.getString(getActivity(),"id")));
+        SearchHisAdapter searchHisAdapter  = new SearchHisAdapter(getActivity(),searchHisList,R.layout.search_his_item);
+        rv_his.setAdapter(searchHisAdapter);
+        searchHisAdapter.setClickCallBack(new SearchHisAdapter.ClickCallBack() {
+            @Override
+            public void onClick(int position, SearchHis searchHis) {
+
+            }
+        });
+
+
+
     }
 }

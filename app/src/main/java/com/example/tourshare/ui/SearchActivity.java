@@ -2,6 +2,7 @@ package com.example.tourshare.ui;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 
@@ -16,6 +17,7 @@ import com.example.tourshare.adapter.Adapter4;
 import com.example.tourshare.base.BaseActivity;
 import com.example.tourshare.base.MToastUtils;
 import com.example.tourshare.bean.Command;
+import com.example.tourshare.bean.SqliteUtils;
 import com.example.tourshare.bean.User;
 import com.example.tourshare.utils.PreferencesUtils;
 import com.google.android.material.tabs.TabLayout;
@@ -63,8 +65,13 @@ public class SearchActivity extends BaseActivity {
         adapter4.setNewData(LitePal.findAll(User.class));
 
         edt_search.setOnEditorActionListener((v, actionId, event) -> {
+
+            if(!TextUtils.isEmpty(getText(edt_search))){
+                SqliteUtils.insertSearchHis(Long.valueOf(PreferencesUtils.getString(this,"id")),getText(edt_search));
+            }
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 if(!TextUtils.isEmpty(getText(edt_search))){
+
                     if ( type==1){
                         adapter.setNewData(LitePal.where("title like ?","%" + getText(edt_search) + "%").find(Command.class));
                     }else {
