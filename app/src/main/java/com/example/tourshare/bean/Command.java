@@ -115,4 +115,7 @@ public class Command extends LitePalSupport implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
+
+
+
 }

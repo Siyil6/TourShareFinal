@@ -1,6 +1,8 @@
 package com.example.tourshare.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +16,7 @@ import com.example.tourshare.base.BaseFragment;
 import com.example.tourshare.bean.Command;
 import com.example.tourshare.ui.NewPostActivity;
 import com.example.tourshare.ui.PostContentActivity;
+import com.example.tourshare.ui.UserInfoActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import org.litepal.LitePal;
@@ -77,6 +80,15 @@ public class F1 extends BaseFragment {
                 Bundle b = new Bundle();
                 b.putSerializable("data",((Command)adapter.getData().get(position)));
                 startToActivity(PostContentActivity.class,b);
+            }
+        });
+        adapter2.setClickUserInfo(new Adapter2.ClickUserInfo() {
+            @Override
+            public void onclik(Command item) {
+                Log.d("TAG", "onclik: "+item);
+                Intent   intent  = new Intent(getActivity(), UserInfoActivity.class);
+                intent.putExtra("user_id",item.getUser_id());
+                startActivity(intent);
             }
         });
 

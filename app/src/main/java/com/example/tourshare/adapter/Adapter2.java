@@ -1,5 +1,6 @@
 package com.example.tourshare.adapter;
 
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -27,6 +28,11 @@ public class Adapter2 extends BaseQuickAdapter<Command, BaseViewHolder> {
     public Adapter2(int layoutResId) {
         super(layoutResId);
     }
+    private ClickUserInfo clickUserInfo  ;
+    public   interface   ClickUserInfo{
+        void     onclik(Command item);
+    }
+
 
     @Override
     protected void convert(@NonNull BaseViewHolder helper, Command item) {
@@ -56,5 +62,28 @@ public class Adapter2 extends BaseQuickAdapter<Command, BaseViewHolder> {
         helper.setText(R.id.tv_1,item.getUser_name())
                 .setText(R.id.tv_2,item.getAddress())
                 .setText(R.id.tv_3,item.getTitle());
+
+        helper.getView(R.id.iv_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clickUserInfo  !=null){
+                    clickUserInfo.onclik(item);
+
+                }
+            }
+        });
+        helper.getView(R.id.tv_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (clickUserInfo  !=null){
+                    clickUserInfo.onclik(item);
+
+                }
+            }
+        });
+    }
+
+    public void setClickUserInfo(ClickUserInfo clickUserInfo) {
+        this.clickUserInfo = clickUserInfo;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.tourshare.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -63,7 +64,14 @@ public class SearchActivity extends BaseActivity {
         adapter.setNewData(mList);
 
         adapter4.setNewData(LitePal.findAll(User.class));
-
+        adapter4.setClickUserInfo(new Adapter4.ClickUserInfo() {
+            @Override
+            public void onclik(User item) {
+                Intent intent  = new Intent(SearchActivity.this, UserInfoActivity.class);
+                intent.putExtra("user_id",String.valueOf(item.getId()));
+                startActivity(intent);
+            }
+        });
         edt_search.setOnEditorActionListener((v, actionId, event) -> {
 
             if(!TextUtils.isEmpty(getText(edt_search))){

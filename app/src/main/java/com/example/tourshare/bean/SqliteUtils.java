@@ -31,4 +31,13 @@ public class SqliteUtils {
     public static List<SearchHis> selectSearchHisByUser(long  user_id){
         return LitePal.where("user_id = ?",String.valueOf(user_id)).order("create_timestamp desc  ").limit(10).find(SearchHis.class);
     }
+
+    /**
+     * 已经用户id 查询用户信息
+     * @param user_id
+     * @return 对应的用户信息
+     */
+    public static List<User> selectUserById(long user_id){
+        return   LitePal.where("id = ? ",String.valueOf(user_id)).find(User.class);
+    }
 }
