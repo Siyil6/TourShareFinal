@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015 [1076559197@qq.com | tchen0707@gmail.com]
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License”);
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <dimen name="statusbar_view_height">0dp</dimen>
+    <dimen name="recyclerview_driver">0.5dp</dimen>
+    <dimen name="common_load_more_progress_size">30dp</dimen>
+    <dimen name="common_load_more_padding">20dp</dimen>
+    <dimen name="common_loading_progress_size">35dp</dimen>
+    <dimen name="common_loading_text_margin">10dp</dimen>
+    <dimen name="common_loading_text_lines_spacing">5dp</dimen>
+    <dimen name="divider">0.5dp</dimen>
+    <dimen name="leftmargin">12dp</dimen>
+    <dimen name="rightmargin">12dp</dimen>
+    <!-- standard metrics -->
+    <dimen name="spacing_normal">8dp</dimen>
+    <dimen name="spacing_micro">4dp</dimen>
+    <dimen name="padding_small">5dp</dimen>
+    <dimen name="padding_xsmall">10dp</dimen>
+    <dimen name="padding_xxsmall">14dp</dimen>
+    <dimen name="padding_normal">16dp</dimen>
+    <dimen name="padding_normal1">32dp</dimen>
+
+    <!-- App Primary Text Sizes -->
+    <dimen name="app_text_size_small">12sp</dimen>
+    <dimen name="app_text_size_xsmall">13sp</dimen>
+    <dimen name="app_text_size_medium">14sp</dimen>
+    <dimen name="app_text_size_xmedium">15sp</dimen>
+    <dimen name="app_text_size_large">16sp</dimen>
+    <dimen name="app_text_size_xlarge">18sp</dimen>
+    <dimen name="app_text_size_xxlarge">20sp</dimen>
+
+    <dimen name="sp_18">18sp</dimen>
+
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_48">48dp</dimen>
+    <dimen name="dp_6">6dp</dimen>
+    <dimen name="dp_8">8dp</dimen>
+    <dimen name="sp_15">15sp</dimen>
+    <dimen name="dp_16">16dp</dimen>
+    <dimen name="dp_24">24dp</dimen>
+    <dimen name="dp_29">29dp</dimen>
+    <dimen name="dp_84">84dp</dimen>
+
+    <dimen name="dp_0">0dp</dimen>
+    <dimen name="dp_9">9dp</dimen>
+    <dimen name="dp_11">11dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_18">18dp</dimen>
+    <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_21">21dp</dimen>
+    <dimen name="dp_26">26dp</dimen>
+    <dimen name="dp_28">28dp</dimen>
+    <dimen name="dp_30">30dp</dimen>
+    <dimen name="dp_31">31dp</dimen>
+    <dimen name="dp_32">32dp</dimen>
+    <dimen name="dp_35">35dp</dimen>
+    <dimen name="dp_36">36dp</dimen>
+    <dimen name="dp_39">39dp</dimen>
+    <dimen name="dp_41">41dp</dimen>
+    <dimen name="dp_42">42dp</dimen>
+    <dimen name="dp_43">43dp</dimen>
+    <dimen name="dp_45">45dp</dimen>
+    <dimen name="dp_52">52dp</dimen>
+    <dimen name="dp_53">53dp</dimen>
+    <dimen name="dp_54">54dp</dimen>
+    <dimen name="dp_55">55dp</dimen>
+    <dimen name="dp_57">57dp</dimen>
+    <dimen name="dp_59">59dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_63">63dp</dimen>
+    <dimen name="dp_64">64dp</dimen>
+    <dimen name="dp_65">65dp</dimen>
+    <dimen name="dp_66">66dp</dimen>
+    <dimen name="dp_72">72dp</dimen>
+    <dimen name="dp_78">78dp</dimen>
+    <dimen name="dp_81">81dp</dimen>
+    <dimen name="dp_82">82dp</dimen>
+    <dimen name="dp_89">89dp</dimen>
+    <dimen name="dp_90">90dp</dimen>
+    <dimen name="dp_93">93dp</dimen>
+    <dimen name="dp_96">96dp</dimen>
+    <dimen name="dp_98">98dp</dimen>
+    <dimen name="dp_102">102dp</dimen>
+    <dimen name="dp_108">108dp</dimen>
+    <dimen name="dp_124">124dp</dimen>
+    <dimen name="dp_128">128dp</dimen>
+    <dimen name="dp_132">132dp</dimen>
+    <dimen name="dp_144">144dp</dimen>
+    <dimen name="dp_147">147dp</dimen>
+    <dimen name="dp_160">160dp</dimen>
+    <dimen name="dp_170">170dp</dimen>
+    <dimen name="dp_192">192dp</dimen>
+    <dimen name="dp_214">214dp</dimen>
+    <dimen name="dp_216">216dp</dimen>
+    <dimen name="dp_226">226dp</dimen>
+    <dimen name="dp_238">238dp</dimen>
+    <dimen name="dp_262">262dp</dimen>
+    <dimen name="dp_367">367dp</dimen>
+    <dimen name="dp_480">480dp</dimen>
+    <dimen name="dp_540">540dp</dimen>
+
+    <dimen name="bottom_bar_height">48dp</dimen>
+
+    <dimen name="dp_row">48dp</dimen>
+
+    <dimen name="default_line_indicator_line_width">24dp</dimen>
+    <dimen name="default_line_indicator_gap_width">12dp</dimen>
+    <dimen name="default_line_indicator_stroke_width">12dp</dimen>
+</resources>

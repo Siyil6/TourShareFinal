@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_search"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginRight="@dimen/dp_12"
+        android:background="@drawable/radius8_1"
+        android:drawableRight="@mipmap/search"
+        android:drawablePadding="@dimen/dp_12"
+        android:clickable="true"
+        android:singleLine="true"
+        android:imeOptions="actionSearch"
+        android:hint="Search for keyword or user name..."
+        android:paddingLeft="@dimen/dp_12"
+        android:textSize="@dimen/dp_12"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginRight="200dp"
+        app:tabIndicatorColor="@color/white"
+        app:tabSelectedTextColor="@color/color_333333"
+        app:tabTextColor="@color/color_666666"
+        app:tabMode="auto"
+        app:layout_constraintTop_toBottomOf="@+id/edt_search"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/re"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/re_2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

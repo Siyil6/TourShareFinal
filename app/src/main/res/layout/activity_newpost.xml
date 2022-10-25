@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f8f8f8">
+    <include layout="@layout/common_mtoolbar"
+        style="@style/toolbarStyle"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:hint="Write your content..."
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginRight="@dimen/dp_12"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintTop_toBottomOf="@+id/re_comon_bar"
+        android:layout_marginTop="@dimen/dp_8"
+        android:background="@drawable/radius24_bg"
+        android:paddingLeft="@dimen/dp_12"/>
+    <ImageView
+        android:id="@+id/iv_add"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        app:layout_constraintTop_toBottomOf="@+id/edt_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_36"
+        android:background="@mipmap/madd"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/re_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/iv_add"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginRight="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_12"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/re_1"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_24">
+
+        <ImageView
+            android:id="@+id/iv_1"
+            android:layout_width="@dimen/dp_26"
+            android:layout_height="@dimen/dp_26"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/dw" />
+
+        <TextView
+            android:id="@+id/tv_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_toRightOf="@+id/iv_1"
+            android:text="Show current location"
+            android:textSize="@dimen/sp_14" />
+        <TextView
+            android:id="@+id/tv_l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_toRightOf="@+id/tv_s"
+            android:textSize="@dimen/sp_14" />
+
+        <Switch
+            android:id="@+id/sw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:checked="true"
+            android:layout_marginRight="@dimen/dp_12" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

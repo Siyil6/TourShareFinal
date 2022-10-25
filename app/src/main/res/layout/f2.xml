@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_search"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="56dp"
+        android:layout_marginRight="@dimen/dp_12"
+        android:background="@drawable/radius8_1"
+        android:drawableRight="@mipmap/search"
+        android:focusable="false"
+        android:drawablePadding="@dimen/dp_12"
+        android:hint="Search for keyword or user name..."
+        android:paddingLeft="@dimen/dp_12"
+        android:textSize="@dimen/dp_12" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_96"
+        android:gravity="center"
+        android:text="Don't know what to look?\nTry to 'shake' your phone!"
+        android:layout_below="@+id/edt_search"/>
+    <ImageView
+        android:id="@+id/iv_shake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/shake_logo"/>
+</RelativeLayout>
