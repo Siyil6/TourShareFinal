@@ -1,5 +1,6 @@
 package com.example.tourshare.bean;
 
+import android.content.ContentValues;
 import android.util.Log;
 
 import org.litepal.LitePal;
@@ -40,4 +41,14 @@ public class SqliteUtils {
     public static List<User> selectUserById(long user_id){
         return   LitePal.where("id = ? ",String.valueOf(user_id)).find(User.class);
     }
+
+
+    public  static   void  updateUserDes(long  user_id,String  des){
+        ContentValues   contentValues    = new ContentValues();
+        contentValues.put("des",des);
+       LitePal.update(User.class,contentValues,user_id);
+    }
+
+
+
 }

@@ -37,6 +37,8 @@ public class UserInfoActivity extends BaseActivity {
     ImageView iv_1;
     @BindView(R.id.tv_1)
     TextView tv_1;
+    @BindView(R.id.tv_2)
+    TextView tv_2;
     @BindView(R.id.re_2)
     RecyclerView re2;
     @BindView(R.id.tab)
@@ -62,6 +64,7 @@ public class UserInfoActivity extends BaseActivity {
 
     public void initUserInfo() {
         User user = SqliteUtils.selectUserById(user_id).get(0);
+        tv_2.setText(user.getDes());
         if (!TextUtils.isEmpty(user.getIcon())) {
             Glide.with(this).asBitmap()
                     .load(user.getIcon())

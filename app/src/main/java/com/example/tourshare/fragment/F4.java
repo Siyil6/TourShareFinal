@@ -42,6 +42,7 @@ import butterknife.OnClick;
 public class F4 extends BaseFragment {
     @BindView(R.id.iv_1) ImageView iv_1;
     @BindView(R.id.tv_1) TextView tv_1;
+    @BindView(R.id.tv_2) TextView tv_2;
     @BindView(R.id.re_2) RecyclerView re2;
     @BindView(R.id.tab) TabLayout tab;
     private Adapter2 adapter2;
@@ -70,6 +71,8 @@ public class F4 extends BaseFragment {
         }
         if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"nick"))){
             tv_1.setText(PreferencesUtils.getString(_mActivity,"nick"));
+        } if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"des"))){
+            tv_2.setText(PreferencesUtils.getString(_mActivity,"des"));
         }
 
         List<Command> mList = LitePal.where("user_id=?",PreferencesUtils.getString(_mActivity,"id"))

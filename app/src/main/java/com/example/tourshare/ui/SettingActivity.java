@@ -25,6 +25,7 @@ import androidx.lifecycle.Observer;
 import com.bumptech.glide.Glide;
 import com.example.tourshare.R;
 import com.example.tourshare.base.BaseActivity;
+import com.example.tourshare.bean.SqliteUtils;
 import com.example.tourshare.utils.PreferencesUtils;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
@@ -40,6 +41,10 @@ public class SettingActivity extends BaseActivity {
     @BindView(R.id.iv_updatehead) ImageView iv_updatehead;
     @BindView(R.id.tv_user_nickname)
     TextView tv_user_nickname;
+    @BindView(R.id.tv_user_des)
+    TextView tv_user_des;
+    @BindView(R.id.tv_des)
+    TextView tv_des;
     private String path="",nickname = "";
     @Override
     protected int getContentViewLayoutID() {
@@ -59,6 +64,9 @@ public class SettingActivity extends BaseActivity {
     @Override
     protected void initData() {
         super.initData();
+        if (!TextUtils.isEmpty(PreferencesUtils.getString(this,"des"))){
+            tv_user_des.setText(PreferencesUtils.getString(this,"des"));
+        }
     }
 
     @Override
@@ -112,7 +120,7 @@ public class SettingActivity extends BaseActivity {
         }
     }
 
-    @OnClick({R.id.iv_updatehead,R.id.re_user_nickname})
+    @OnClick({R.id.iv_updatehead,R.id.re_user_nickname,R.id.re_user_des})
     public void onClick(View v){
         switch (v.getId()){
             case R.id.iv_updatehead:
@@ -139,10 +147,35 @@ public class SettingActivity extends BaseActivity {
                         nickname = getText(edt);
                         tv_user_nickname.setText(nickname);
                         PreferencesUtils.putString(SettingActivity.this,"nick",nickname);
+
                     }
                 });
                 b.create();
                 b.show();
+                break;
+
+            case R.id.re_user_des:
+                AlertDialog.Builder c = new AlertDialog.Builder(SettingActivity.this);
+                c.setTitle("please enter your description");
+                EditText edt1 = new EditText(SettingActivity.this);
+                c.setView(edt1);
+                c.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                c.setPositiveButton("确定修改", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                       String  des = getText(edt1);
+                        tv_user_des.setText(des);
+                        PreferencesUtils.putString(SettingActivity.this,"des",des);
+                        SqliteUtils.updateUserDes(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),des);
+                    }
+                });
+                c.create();
+                c.show();
                 break;
         }
     }

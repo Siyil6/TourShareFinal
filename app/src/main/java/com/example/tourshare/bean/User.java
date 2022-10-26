@@ -9,17 +9,28 @@ public class User extends LitePalSupport {
     private String email;
     private String pwd;
     private String icon;
+    private String des;
 
-    public User(String name, String email, String pwd) {
+    public User(String name, String email, String pwd ) {
         this.name = name;
         this.email = email;
         this.pwd = pwd;
+
     }
     public User(String name, String email, String pwd,String icon) {
         this.name = name;
         this.email = email;
         this.pwd = pwd;
         this.icon = icon;
+
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
     }
 
     public String getIcon() {
