@@ -1,10 +1,8 @@
 package com.example.tourshare.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +19,6 @@ import com.example.tourshare.bean.Command;
 import com.example.tourshare.bean.LikeBean;
 import com.example.tourshare.bean.SqliteUtils;
 import com.example.tourshare.bean.User;
-import com.example.tourshare.utils.PreferencesUtils;
 import com.google.android.material.tabs.TabLayout;
 
 import org.litepal.LitePal;
@@ -30,12 +27,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class UserInfoActivity extends BaseActivity {
     @BindView(R.id.iv_1)
     ImageView iv_1;
-    @BindView(R.id.tv_1)
+    @BindView(R.id.nickname)
     TextView tv_1;
     @BindView(R.id.tv_2)
     TextView tv_2;

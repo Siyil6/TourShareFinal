@@ -11,7 +11,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.tourshare.R;
-import com.example.tourshare.bean.Command;
 import com.example.tourshare.bean.User;
 
 
@@ -41,10 +40,10 @@ public class Adapter4 extends BaseQuickAdapter<User, BaseViewHolder> {
                     .apply(options)
                     .into((ImageView) helper.getView(R.id.iv_1));
         }
-        helper.setText(R.id.tv_1,item.getName())
+        helper.setText(R.id.nickname,item.getName())
                 .setText(R.id.tv_3,item.getEmail());
 
-        helper.getView(R.id.tv_1).setOnClickListener(new View.OnClickListener() {
+        helper.getView(R.id.nickname).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (clickUserInfo  !=null){

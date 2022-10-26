@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F6"
@@ -7,7 +9,7 @@
     <include layout="@layout/common_mtoolbar"
         style="@style/toolbarStyle"/>
     <TextView
-        android:id="@+id/tv_1"
+        android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#333333"
@@ -24,12 +26,15 @@
         android:text="share your travel moments"
         android:textSize="13dp"
         android:textColor="#999999"
-        app:layout_constraintTop_toBottomOf="@+id/tv_1"
+        app:layout_constraintTop_toBottomOf="@+id/nickname"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/dp_8"/>
+
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_1"
+        android:id="@+id/username"
+        android:maxLines="1"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
         app:layout_constraintTop_toBottomOf="@+id/tv_2"
@@ -43,10 +48,12 @@
         android:drawablePadding="@dimen/dp_12"
         android:paddingLeft="@dimen/dp_12"/>
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_2"
+        android:id="@+id/password"
+        android:maxLines="1"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
-        app:layout_constraintTop_toBottomOf="@+id/edt_1"
+        app:layout_constraintTop_toBottomOf="@+id/username"
         android:layout_marginTop="@dimen/dp_24"
         android:layout_marginLeft="@dimen/dp_36"
         android:layout_marginRight="@dimen/dp_36"
@@ -56,27 +63,46 @@
         android:drawablePadding="@dimen/dp_12"
         android:background="@drawable/radius8_1"
         android:paddingLeft="@dimen/dp_12"/>
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_1"
+        android:id="@+id/sign_in"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_40"
-        app:layout_constraintTop_toBottomOf="@+id/edt_2"
-        android:layout_marginTop="@dimen/dp_24"
-        android:layout_marginLeft="@dimen/dp_36"
-        android:layout_marginRight="@dimen/dp_36"
+        android:layout_height="34dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="@dimen/dp_45"
+        android:layout_marginRight="@dimen/dp_45"
         android:background="@drawable/radius8_4"
+        android:text="@string/sign_in"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dp_12"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        tools:layout_editor_absoluteX="52dp" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/remember"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:text="@string/remember"
+        app:layout_constraintBottom_toTopOf="@+id/sign_in"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        android:layout_marginLeft="@dimen/dp_36"
+        android:layout_marginRight="@dimen/dp_160"
+        app:layout_constraintVertical_bias="0.312"
+        tools:layout_editor_absoluteX="36dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_32"
+        android:enabled="true"
+        app:layout_constraintTop_toBottomOf="@+id/sign_in"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="@dimen/dp_45"
+        android:layout_marginRight="@dimen/dp_45"
+        android:background="@drawable/radius8_3"
         android:textColor="@color/white"
         android:textSize="@dimen/dp_12"
         android:textAllCaps="false"
-        android:text="Log in"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/color_666666"
-        android:textSize="11dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="Don't have an account?"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="@dimen/dp_36"/>
+        android:text="@string/register"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

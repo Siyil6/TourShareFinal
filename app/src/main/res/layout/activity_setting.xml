@@ -112,6 +112,20 @@
                 android:layout_toLeftOf="@+id/iv_wallet_ic3"/>
 
         </RelativeLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/log_out"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            app:layout_constraintTop_toBottomOf="@+id/re_user_des"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginLeft="@dimen/dp_40"
+            android:layout_marginRight="@dimen/dp_40"
+            android:text="@string/log_out"
+            android:background="@drawable/radius8_3"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_12"
+            android:textAllCaps="false"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

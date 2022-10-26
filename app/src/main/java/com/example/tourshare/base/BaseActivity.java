@@ -84,7 +84,7 @@ public abstract class BaseActivity extends SupportActivity {
         return lin_back;
     }
 
-    // 菜单返回键
+    // menu return
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -106,7 +106,7 @@ public abstract class BaseActivity extends SupportActivity {
         //BaseAppManager.getInstance().removeActivity(this);
     }
 
-    // 是否启用EventBus
+    //  start EventBus or not
     protected boolean bindEventBus(){
         return false;
     }
@@ -115,14 +115,14 @@ public abstract class BaseActivity extends SupportActivity {
         return null;
     }
 
-    // 空数据View
+    // View with empty data
     public void setEmptyLoading(){
     }
 
-    // 布局view
+    // layout view
     protected abstract int getContentViewLayoutID();
 
-    // 布局view
+    // layout view
     public int setImmersionBarColor() {
         return 0;
     }

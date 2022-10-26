@@ -13,10 +13,10 @@ public class WelcomeActivity extends BaseActivity {
     protected int getContentViewLayoutID() {
         return R.layout.activity_welcome;
     }
-    @OnClick({R.id.btn_1,R.id.btn_2})
+    @OnClick({R.id.register,R.id.btn_2})
     public void onClick(View v){
         switch (v.getId()){
-            case R.id.btn_1:
+            case R.id.register:
                 startToActivity(LoginActivity.class);
                 break;
             case R.id.btn_2:

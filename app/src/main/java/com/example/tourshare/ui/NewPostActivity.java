@@ -18,7 +18,6 @@ import androidx.appcompat.widget.AppCompatEditText;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tourshare.MainActivity;
 import com.example.tourshare.R;
 import com.example.tourshare.adapter.ImageAdapter;
 import com.example.tourshare.base.BaseActivity;
@@ -42,7 +41,7 @@ import butterknife.OnClick;
 
 public class NewPostActivity extends BaseActivity {
     @BindView(R.id.iv_sub_title) TextView iv_sub_title;
-    @BindView(R.id.edt_1) AppCompatEditText edt_1;
+    @BindView(R.id.usernameEd) AppCompatEditText edt_1;
     @BindView(R.id.re_1) RecyclerView re_1;
     @BindView(R.id.tv_l)TextView tv_l;
     @BindView(R.id.sw) Switch sw;

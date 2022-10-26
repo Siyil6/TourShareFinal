@@ -22,7 +22,7 @@ public class AdapterComment extends BaseQuickAdapter<CommentBean, BaseViewHolder
                 .load(item.getIcon())
                 .apply(new RequestOptions().circleCropTransform())
                 .into((ImageView) helper.getView(R.id.iv_1));
-        helper.setText(R.id.tv_1,item.getName())
+        helper.setText(R.id.nickname,item.getName())
                 .setText(R.id.tv_2,item.getAdd_time())
                 .setText(R.id.tv_3,item.getTitle());
     }

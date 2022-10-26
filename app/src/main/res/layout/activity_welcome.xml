@@ -7,7 +7,7 @@
     <include layout="@layout/common_mtoolbar"
         style="@style/toolbarStyle"/>
     <TextView
-        android:id="@+id/tv_1"
+        android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#333333"
@@ -24,12 +24,12 @@
         android:text="share your travel moments"
         android:textSize="13dp"
         android:textColor="#999999"
-        app:layout_constraintTop_toBottomOf="@+id/tv_1"
+        app:layout_constraintTop_toBottomOf="@+id/nickname"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/dp_8"/>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_1"
+        android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
         app:layout_constraintTop_toBottomOf="@+id/tv_2"
@@ -45,7 +45,7 @@
         android:id="@+id/btn_2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
-        app:layout_constraintTop_toBottomOf="@+id/btn_1"
+        app:layout_constraintTop_toBottomOf="@+id/register"
         android:layout_marginTop="@dimen/dp_24"
         android:layout_marginLeft="@dimen/dp_36"
         android:layout_marginRight="@dimen/dp_36"

@@ -23,7 +23,6 @@ import com.example.tourshare.utils.PreferencesUtils;
 
 import org.litepal.LitePal;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,7 +33,7 @@ public class PostContentActivity extends BaseActivity {
     @BindView(R.id.re) RecyclerView re;
     @BindView(R.id.iv_1)ImageView iv_1;
     @BindView(R.id.iv_3)ImageView iv_3;
-    @BindView(R.id.tv_1) TextView tv_1;
+    @BindView(R.id.nickname) TextView tv_1;
     @BindView(R.id.tv_4) TextView tv_4;
     @BindView(R.id.iv_dz)ImageView iv_dz;
     @BindView(R.id.edt_pl) AppCompatEditText edt_pl;

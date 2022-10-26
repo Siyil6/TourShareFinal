@@ -12,7 +12,7 @@
         android:layout_marginTop="56dp"
         android:layout_marginLeft="@dimen/dp_12"/>
     <TextView
-        android:id="@+id/tv_1"
+        android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_8"
@@ -21,7 +21,7 @@
         android:layout_marginLeft="@dimen/dp_10"
         android:textSize="@dimen/sp_14"
         android:textColor="@color/color_333333"
-        android:text="Tony"/>
+        android:text=""/>
     <TextView
         android:id="@+id/tv_2"
         android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
         android:layout_marginLeft="@dimen/dp_10"
         android:textSize="@dimen/dp_12"
         android:textColor="@color/color_999999"
-        android:text="the gay is lazy"/>
+        android:text="@string/default_sig"/>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab"
         android:layout_width="match_parent"

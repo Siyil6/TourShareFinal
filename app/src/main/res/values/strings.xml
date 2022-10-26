@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">tourshare</string>
+    <string name="app_name">Tour Share</string>
+    <string name="sign_in">Sign in</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="remember">Remember Password</string>
+    <string name="email_address">Email address</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="log_out">Log Out</string>
+    <string name="default_sig">the gay is lazy</string>
 </resources>

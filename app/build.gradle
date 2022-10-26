@@ -42,11 +42,11 @@ dependencies {
     implementation 'com.zhihu.android:matisse:0.5.3-beta3'
     implementation 'com.uber.autodispose2:autodispose-androidx-lifecycle:2.0.0'
     implementation 'com.github.tbruyelle:rxpermissions:0.12'
-    implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1' //自适应布局
+    implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
     implementation 'me.yokeyword:fragmentationx:1.0.2'
-    // 基础依赖包，必须要依赖  沉浸式状态栏
+    // basic dependency package
     implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
-    // fragment快速实现（可选）
+    // fragment
     implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'org.litepal.guolindev:core:3.2.3'

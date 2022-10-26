@@ -5,7 +5,6 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -59,7 +58,7 @@ public class Adapter2 extends BaseQuickAdapter<Command, BaseViewHolder> {
                 .load(item.getUser_icon())
                 .apply(options)
                 .into((ImageView) helper.getView(R.id.iv_1));
-        helper.setText(R.id.tv_1,item.getUser_name())
+        helper.setText(R.id.nickname,item.getUser_name())
                 .setText(R.id.tv_2,item.getAddress())
                 .setText(R.id.tv_3,item.getTitle());
 
@@ -72,7 +71,7 @@ public class Adapter2 extends BaseQuickAdapter<Command, BaseViewHolder> {
                 }
             }
         });
-        helper.getView(R.id.tv_1).setOnClickListener(new View.OnClickListener() {
+        helper.getView(R.id.nickname).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (clickUserInfo  !=null){

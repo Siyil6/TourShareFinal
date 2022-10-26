@@ -20,7 +20,7 @@ import butterknife.BindView;
 
 public class F3 extends BaseFragment implements SensorEventListener {
     @BindView(R.id.imageview)ImageView imageview;
-    @BindView(R.id.tv_1) TextView tv_1;
+    @BindView(R.id.nickname) TextView tv_1;
     private SensorManager sensorManager;
     private float lastRotateDegree;
     private String mOrientaionText[] = new String[]{"N", "NE", "E", "SE", "S", "SW", "W", "NW"};

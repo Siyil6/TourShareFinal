@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F6"
@@ -7,7 +8,7 @@
     <include layout="@layout/common_mtoolbar"
         style="@style/toolbarStyle"/>
     <TextView
-        android:id="@+id/tv_1"
+        android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#333333"
@@ -24,12 +25,12 @@
         android:text="share your travel moments"
         android:textSize="13dp"
         android:textColor="#999999"
-        app:layout_constraintTop_toBottomOf="@+id/tv_1"
+        app:layout_constraintTop_toBottomOf="@+id/nickname"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/dp_8"/>
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_1"
+        android:id="@+id/usernameEd"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
         app:layout_constraintTop_toBottomOf="@+id/tv_2"
@@ -39,48 +40,56 @@
         android:background="@drawable/radius8_1"
         android:drawableLeft="@mipmap/yh"
         android:textColorHint="@color/color_999999"
-        android:hint="Username"
+        android:hint="@string/username"
+        android:maxLines="1"
+        android:inputType="text"
         android:drawablePadding="@dimen/dp_12"
         android:paddingLeft="@dimen/dp_12"/>
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_2"
+        android:id="@+id/emailEd"
+        android:maxLines="1"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
-        app:layout_constraintTop_toBottomOf="@+id/edt_1"
+        app:layout_constraintTop_toBottomOf="@+id/usernameEd"
         android:layout_marginTop="@dimen/dp_24"
         android:layout_marginLeft="@dimen/dp_36"
         android:layout_marginRight="@dimen/dp_36"
         android:drawableLeft="@mipmap/yx"
         android:textColorHint="@color/color_999999"
-        android:hint="Email address"
+        android:hint="@string/email_address"
         android:drawablePadding="@dimen/dp_12"
         android:background="@drawable/radius8_1"
         android:paddingLeft="@dimen/dp_12"/>
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_3"
+        android:id="@+id/passwordEd"
+        android:maxLines="1"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
-        app:layout_constraintTop_toBottomOf="@+id/edt_2"
+        app:layout_constraintTop_toBottomOf="@+id/emailEd"
         android:layout_marginTop="@dimen/dp_24"
         android:layout_marginLeft="@dimen/dp_36"
         android:layout_marginRight="@dimen/dp_36"
         android:drawableLeft="@mipmap/mm"
         android:textColorHint="@color/color_999999"
-        android:hint="Password"
+        android:hint="@string/password"
         android:drawablePadding="@dimen/dp_12"
         android:background="@drawable/radius8_1"
         android:paddingLeft="@dimen/dp_12"/>
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_4"
+        android:id="@+id/passwordConfirmEd"
+        android:maxLines="1"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
-        app:layout_constraintTop_toBottomOf="@+id/edt_3"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEd"
         android:layout_marginTop="@dimen/dp_24"
         android:layout_marginLeft="@dimen/dp_36"
         android:layout_marginRight="@dimen/dp_36"
         android:drawableLeft="@mipmap/mm"
         android:textColorHint="@color/color_999999"
-        android:hint="Confirm Password"
+        android:hint="@string/confirm_password"
         android:drawablePadding="@dimen/dp_12"
         android:background="@drawable/radius8_1"
         android:paddingLeft="@dimen/dp_12"/>
@@ -88,11 +97,11 @@
         android:id="@+id/lin_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/edt_4"
-        app:layout_constraintLeft_toLeftOf="@+id/edt_4"
+        app:layout_constraintTop_toBottomOf="@+id/passwordConfirmEd"
+        app:layout_constraintLeft_toLeftOf="@+id/passwordConfirmEd"
         android:layout_marginTop="@dimen/dp_36">
         <CheckBox
-            android:id="@+id/ck"
+            android:id="@+id/policyAgree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
@@ -103,7 +112,7 @@
             android:textColor="#3894FF"/>
     </LinearLayout>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_1"
+        android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
         app:layout_constraintTop_toBottomOf="@+id/lin_1"
@@ -114,5 +123,5 @@
         android:textColor="@color/white"
         android:textSize="@dimen/dp_12"
         android:textAllCaps="false"
-        android:text="Register"/>
+        android:text="@string/register"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,7 @@
     <include layout="@layout/common_mtoolbar"
         style="@style/toolbarStyle"/>
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_1"
+        android:id="@+id/usernameEd"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:hint="Write your content..."
@@ -23,7 +23,7 @@
         android:id="@+id/iv_add"
         android:layout_width="@dimen/dp_60"
         android:layout_height="@dimen/dp_60"
-        app:layout_constraintTop_toBottomOf="@+id/edt_1"
+        app:layout_constraintTop_toBottomOf="@+id/usernameEd"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginTop="@dimen/dp_36"

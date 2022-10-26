@@ -23,6 +23,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Observer;
 
 import com.bumptech.glide.Glide;
+import com.example.tourshare.MainActivity;
 import com.example.tourshare.R;
 import com.example.tourshare.base.BaseActivity;
 import com.example.tourshare.bean.SqliteUtils;
@@ -58,7 +59,8 @@ public class SettingActivity extends BaseActivity {
         nickname = TextUtils.isEmpty(PreferencesUtils.getString(this,"nick"))
                 ?"":PreferencesUtils.getString(this,"nick");
         tv_user_nickname.setText(nickname);
-        Glide.with(this).load(PreferencesUtils.getString(this,"icon")).placeholder(R.mipmap.png_head).into(iv_updatehead);
+        Glide.with(this).load(PreferencesUtils.getString(this,"icon")).
+                placeholder(R.mipmap.png_head).into(iv_updatehead);
     }
 
     @Override
@@ -120,7 +122,7 @@ public class SettingActivity extends BaseActivity {
         }
     }
 
-    @OnClick({R.id.iv_updatehead,R.id.re_user_nickname,R.id.re_user_des})
+    @OnClick({R.id.iv_updatehead,R.id.re_user_nickname,R.id.re_user_des,R.id.log_out})
     public void onClick(View v){
         switch (v.getId()){
             case R.id.iv_updatehead:
@@ -132,16 +134,16 @@ public class SettingActivity extends BaseActivity {
                 break;
             case R.id.re_user_nickname:
                 AlertDialog.Builder b = new AlertDialog.Builder(SettingActivity.this);
-                b.setTitle("请输入昵称");
+                b.setTitle("Please Enter your nickname");
                 EditText edt = new EditText(SettingActivity.this);
                 b.setView(edt);
-                b.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
                     }
                 });
-                b.setPositiveButton("确定修改", new DialogInterface.OnClickListener() {
+                b.setPositiveButton("Are you sure to make change", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         nickname = getText(edt);
@@ -159,13 +161,13 @@ public class SettingActivity extends BaseActivity {
                 c.setTitle("please enter your description");
                 EditText edt1 = new EditText(SettingActivity.this);
                 c.setView(edt1);
-                c.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                c.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
                     }
                 });
-                c.setPositiveButton("确定修改", new DialogInterface.OnClickListener() {
+                c.setPositiveButton("Are you sure to change?", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                        String  des = getText(edt1);
@@ -177,6 +179,9 @@ public class SettingActivity extends BaseActivity {
                 c.create();
                 c.show();
                 break;
+            case R.id.log_out:
+                startToActivity(LoginActivity.class);
+                break;
         }
     }
 
@@ -184,4 +189,6 @@ public class SettingActivity extends BaseActivity {
     public int setImmersionBarColor() {
         return R.color.white;
     }
+
+
 }

@@ -1,18 +1,11 @@
 package com.example.tourshare.fragment;
 
-import android.Manifest;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,7 +26,6 @@ import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -41,7 +33,7 @@ import butterknife.OnClick;
 
 public class F4 extends BaseFragment {
     @BindView(R.id.iv_1) ImageView iv_1;
-    @BindView(R.id.tv_1) TextView tv_1;
+    @BindView(R.id.nickname) TextView nickname;
     @BindView(R.id.tv_2) TextView tv_2;
     @BindView(R.id.re_2) RecyclerView re2;
     @BindView(R.id.tab) TabLayout tab;
@@ -70,7 +62,7 @@ public class F4 extends BaseFragment {
                     .into(iv_1);
         }
         if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"nick"))){
-            tv_1.setText(PreferencesUtils.getString(_mActivity,"nick"));
+            nickname.setText(PreferencesUtils.getString(_mActivity,"nick"));
         } if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"des"))){
             tv_2.setText(PreferencesUtils.getString(_mActivity,"des"));
         }
@@ -83,6 +75,9 @@ public class F4 extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
+        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"name"))) {
+            nickname.setText(PreferencesUtils.getString(_mActivity,"name"));
+        }
         tab.addTab(tab.newTab().setText("My Post"));
         tab.addTab(tab.newTab().setText("Liked"));
         adapter2 = new Adapter2(R.layout.adapter_2);
@@ -94,13 +89,15 @@ public class F4 extends BaseFragment {
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()){
                     case 0:
-                        List<Command> mList = LitePal.where("user_id=?",PreferencesUtils.getString(_mActivity,"id"))
+                        List<Command> mList = LitePal.where("user_id=?",
+                                        PreferencesUtils.getString(_mActivity,"id"))
                                 .find(Command.class);
                         adapter2.setNewData(mList);
                         break;
                     case 1:
                         List<Command> mList2 = new ArrayList<>();
-                        List<LikeBean> likeList = LitePal.where("u_id=?", PreferencesUtils.getString(_mActivity, "id")).find(LikeBean.class);
+                        List<LikeBean> likeList = LitePal.where("u_id=?",
+                                PreferencesUtils.getString(_mActivity, "id")).find(LikeBean.class);
                         for (LikeBean l :likeList){
                             Command c = LitePal.where("id=?", l.getC_id()).findFirst(Command.class);
                             mList2.add(c);
