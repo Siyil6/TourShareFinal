@@ -49,6 +49,11 @@ public class SqliteUtils {
        LitePal.update(User.class,contentValues,user_id);
     }
 
-
-
+    public  static   void  updateCommand(long  user_id,String  nickName){
+        ContentValues   contentValues    = new ContentValues();
+        contentValues.put("user_name",nickName);
+        LitePal.updateAll(Command.class,contentValues,"user_id = ? ",user_id+"");
+    }
 }
+
+

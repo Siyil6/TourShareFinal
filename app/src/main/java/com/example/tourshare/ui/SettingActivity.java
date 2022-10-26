@@ -147,7 +147,7 @@ public class SettingActivity extends BaseActivity {
                         nickname = getText(edt);
                         tv_user_nickname.setText(nickname);
                         PreferencesUtils.putString(SettingActivity.this,"nick",nickname);
-
+                        SqliteUtils.updateCommand(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
                     }
                 });
                 b.create();
