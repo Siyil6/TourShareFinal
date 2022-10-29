@@ -86,7 +86,7 @@ public class PostContentActivity extends BaseActivity {
 
     @Override
     public int setImmersionBarColor() {
-        return R.color.white;
+        return R.color.gradient_4;
     }
     @OnClick({R.id.iv_dz,R.id.btn_pl})
     public void onClick(View v) {

@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#f8f8f8">
-    <include layout="@layout/common_mtoolbar"
-        style="@style/toolbarStyle"/>
+    android:background="@color/gradient_0">
+
+    <include
+        style="@style/toolbarStyle"
+        layout="@layout/common_mtoolbar" />
+
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/usernameEd"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:hint="Write your content..."
         android:layout_marginLeft="@dimen/dp_12"
-        android:layout_marginRight="@dimen/dp_12"
-        android:textSize="@dimen/sp_14"
-        app:layout_constraintTop_toBottomOf="@+id/re_comon_bar"
         android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_12"
         android:background="@drawable/radius24_bg"
-        android:paddingLeft="@dimen/dp_12"/>
+        android:hint="Write your content..."
+        android:paddingLeft="@dimen/dp_12"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintTop_toBottomOf="@+id/re_comon_bar" />
+
     <ImageView
         android:id="@+id/iv_add"
         android:layout_width="@dimen/dp_60"
         android:layout_height="@dimen/dp_60"
-        app:layout_constraintTop_toBottomOf="@+id/usernameEd"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginTop="@dimen/dp_36"
-        android:background="@mipmap/madd"/>
+        android:background="@mipmap/madd"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameEd" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/re_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/iv_add"
         android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_12"
         android:layout_marginRight="@dimen/dp_12"
-        android:layout_marginTop="@dimen/dp_12"/>
+        app:layout_constraintTop_toBottomOf="@+id/iv_add" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/re_1"
         android:layout_marginLeft="@dimen/dp_12"
-        android:layout_marginTop="@dimen/dp_24">
+        android:layout_marginTop="@dimen/dp_24"
+        app:layout_constraintTop_toBottomOf="@+id/re_1">
 
         <ImageView
             android:id="@+id/iv_1"
@@ -59,6 +65,7 @@
             android:layout_toRightOf="@+id/iv_1"
             android:text="Show current location"
             android:textSize="@dimen/sp_14" />
+
         <TextView
             android:id="@+id/tv_l"
             android:layout_width="wrap_content"
@@ -74,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:checked="true"
-            android:layout_marginRight="@dimen/dp_12" />
+            android:layout_marginRight="@dimen/dp_12"
+            android:checked="true" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
