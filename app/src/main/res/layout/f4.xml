@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gradient_0"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageView
         android:id="@+id/iv_1"
@@ -34,18 +33,17 @@
         android:textSize="@dimen/dp_12"
         android:textColor="@color/color_999999"
         android:text="@string/default_sig"/>
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_30"
-        android:layout_marginTop="@dimen/dp_12"
-        android:background="@color/gradient_0"
-        app:layout_constraintTop_toBottomOf="@+id/iv_1"
+        android:layout_marginRight="200dp"
         app:tabIndicatorColor="@color/white"
-        app:tabMode="auto"
         app:tabSelectedTextColor="@color/color_333333"
-        app:tabTextColor="@color/color_666666" />
+        app:tabTextColor="@color/color_666666"
+        android:layout_marginTop="@dimen/dp_12"
+        app:tabMode="auto"
+        app:layout_constraintTop_toBottomOf="@+id/iv_1"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/re_2"
         android:layout_width="match_parent"

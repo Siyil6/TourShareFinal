@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/re_comon_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/gradient_4">
-
+    android:background="@color/white"
+    android:id="@+id/re_comon_bar">
     <LinearLayout
         android:id="@+id/lin_back"
+        android:minWidth="150dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:orientation="horizontal"
         android:background="?android:attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:minWidth="150dp"
-        android:orientation="horizontal">
-
+        android:gravity="center_vertical">
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/back" />
-
+            android:background="@drawable/back"
+            android:layout_marginLeft="15dp"/>
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:textColor="@color/black"
-            android:textSize="21dp" />
+            android:textColor="#333333"
+            android:textSize="21dp"
+            android:layout_marginLeft="2dp" />
     </LinearLayout>
-
     <TextView
         android:id="@+id/iv_sub_title"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:textSize="@dimen/sp_14"
         android:layout_marginRight="15dp"
-        android:background="@color/white"
-        android:gravity="right|center_vertical"
-        android:textSize="@dimen/sp_14" />
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="right|center_vertical"/>
 </RelativeLayout>

@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gradient_0"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <androidx.appcompat.widget.AppCompatEditText
@@ -22,16 +21,16 @@
         android:paddingLeft="@dimen/dp_12"
         android:textSize="@dimen/dp_12"
         app:layout_constraintTop_toTopOf="parent"/>
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_30"
-        app:layout_constraintTop_toBottomOf="@+id/edt_search"
-        app:tabIndicatorColor="@color/gradient_4"
-        app:tabMode="auto"
+        android:layout_marginRight="200dp"
+        app:tabIndicatorColor="@color/white"
         app:tabSelectedTextColor="@color/color_333333"
-        app:tabTextColor="@color/color_666666" />
+        app:tabTextColor="@color/color_666666"
+        app:tabMode="auto"
+        app:layout_constraintTop_toBottomOf="@+id/edt_search"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/re"
         android:layout_width="match_parent"

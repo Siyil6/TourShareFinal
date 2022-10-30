@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/gradient_0">
+    android:layout_height="match_parent">
     <com.example.tourshare.wiget.NoScrollViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
@@ -16,14 +15,12 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/bottom_tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:background="@color/gradient_4"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tabGravity="fill"
         app:tabIndicatorHeight="0dp"
-        app:tabMaxWidth="0dp"
         app:tabMode="fixed"
+        app:tabMaxWidth="0dp"
+        app:tabGravity="fill"
         app:tabSelectedTextColor="@android:color/black"
-        app:tabTextColor="@android:color/darker_gray" />
+        app:tabTextColor="@android:color/darker_gray"
+        android:layout_height="49dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
