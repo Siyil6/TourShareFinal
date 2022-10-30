@@ -4,6 +4,44 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/tourshareFinal_new/app/src/main/res/layout/activity_postcontent.xml" value="0.33" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/radius12_1.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/radius24_bg.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/radius4_8690f2_bg.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/radius8_1.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/radius8_2.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/radius8_3.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/radius8_333333_bg.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/radius8_4.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/selector_tab_logo1.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/selector_tab_logo2.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/selector_tab_logo3.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/drawable/selector_tab_logo4.xml" value="0.1" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/activity_login.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/activity_newpost.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/activity_postcontent.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/activity_register.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/activity_search.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/activity_setting.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/activity_shark.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/activity_start.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/activity_welcome.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/adapter_1.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/adapter_2.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/adapter_3.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/adapter_4.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/adapter_5.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/common_mtoolbar.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/f1.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/f2.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/f3.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/f4.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/home_tab_content.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/image_item.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/search_his_item.xml" value="0.2692502532928065" />
+        <entry key="..\:/tourshareFinal_new1/app/src/main/res/layout/view_toast_custom.xml" value="0.2692502532928065" />
         <entry key="app/src/main/res/layout/activity_setting.xml" value="0.42322834645669294" />
         <entry key="app/src/main/res/layout/f2.xml" value="0.10914855072463768" />
         <entry key="app/src/main/res/layout/f4.xml" value="0.3572586059570313" />
@@ -12,7 +50,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

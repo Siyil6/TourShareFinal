@@ -31,8 +31,8 @@ public class MainActivity extends SupportActivity {
     @BindView(R.id.bottom_tab_layout) TabLayout mTabLayout;
     @BindView(R.id.view_pager)
     NoScrollViewPager viewPager;
-    public static final int []mTabRes = new int[]{R.drawable.selector_tab_logo1,R.drawable.selector_tab_logo1,R.drawable.selector_tab_logo1,
-            R.drawable.selector_tab_logo1};
+    public static final int []mTabRes = new int[]{R.drawable.selector_tab_logo1,R.drawable.selector_tab_logo2,R.drawable.selector_tab_logo3,
+            R.drawable.selector_tab_logo4};
     public static final String []mTabTitle = new String[]{"Home","Explore","Compass","Me"};
 
     @Override
