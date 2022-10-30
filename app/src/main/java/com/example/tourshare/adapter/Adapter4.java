@@ -20,7 +20,7 @@ public class Adapter4 extends BaseQuickAdapter<User, BaseViewHolder> {
     }
     private ClickUserInfo clickUserInfo  ;
     public   interface   ClickUserInfo{
-        void     onclik(User item);
+        void     onclick(User item);
     }
 
 
@@ -47,7 +47,7 @@ public class Adapter4 extends BaseQuickAdapter<User, BaseViewHolder> {
             @Override
             public void onClick(View view) {
                 if (clickUserInfo  !=null){
-                    clickUserInfo.onclik(item);
+                    clickUserInfo.onclick(item);
 
                 }
             }
@@ -56,7 +56,7 @@ public class Adapter4 extends BaseQuickAdapter<User, BaseViewHolder> {
             @Override
             public void onClick(View view) {
                 if (clickUserInfo  !=null){
-                    clickUserInfo.onclik(item);
+                    clickUserInfo.onclick(item);
 
                 }
             }

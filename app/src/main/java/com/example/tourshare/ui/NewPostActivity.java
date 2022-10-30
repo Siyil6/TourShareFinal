@@ -155,7 +155,7 @@ public class NewPostActivity extends BaseActivity {
         if (location != null) {
             tv_l.setText(GPSUtils.getLocalCity());
         } else {
-            tv_l.setText("unknow");
+            tv_l.setText("Unknown");
         }
     }
     @OnClick({R.id.iv_add})
