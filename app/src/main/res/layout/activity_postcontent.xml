@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -85,21 +86,25 @@
         app:layout_constraintLeft_toLeftOf="@id/iv_1"
         android:layout_marginTop="13dp"
         android:text="I Love travelling!"/>
+
     <ImageView
         android:id="@+id/iv_3"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_124"
-        app:layout_constraintTop_toBottomOf="@+id/tv_4"
-        android:layout_marginLeft="@dimen/dp_12"
-        android:layout_marginRight="@dimen/dp_12"
+        android:layout_width="382dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="@dimen/dp_12"
         android:scaleType="fitXY"
-        android:layout_marginTop="@dimen/dp_12"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_4"
+        tools:layout_editor_absoluteX="17dp" />
+
     <View
         android:id="@+id/v_1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="12dp"
         android:background="#666666"
-        app:layout_constraintTop_toBottomOf="@+id/iv_3"/>
+        app:layout_constraintTop_toBottomOf="@+id/iv_3"
+        tools:layout_editor_absoluteX="1dp" />
+
     <TextView
         android:id="@+id/tv_a"
         android:layout_width="match_parent"
@@ -117,12 +122,16 @@
         android:layout_height="1dp"
         android:background="#666666"
         app:layout_constraintTop_toBottomOf="@+id/tv_a"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/re"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="413dp"
+        android:layout_height="229dp"
         app:layout_constraintBottom_toTopOf="@+id/rel"
-        app:layout_constraintTop_toBottomOf="@+id/v_2"/>
+        app:layout_constraintTop_toBottomOf="@+id/v_2"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp" />
+
     <RelativeLayout
         android:id="@+id/rel"
         android:layout_width="match_parent"
