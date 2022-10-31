@@ -66,7 +66,7 @@ public class SearchActivity extends BaseActivity {
         adapter4.setNewData(LitePal.findAll(User.class));
         adapter4.setClickUserInfo(new Adapter4.ClickUserInfo() {
             @Override
-            public void onclik(User item) {
+            public void onclick(User item) {
                 Intent intent  = new Intent(SearchActivity.this, UserInfoActivity.class);
                 intent.putExtra("user_id",String.valueOf(item.getId()));
                 startActivity(intent);
