@@ -67,7 +67,8 @@ public class F4 extends BaseFragment {
             tv_2.setText(PreferencesUtils.getString(_mActivity,"des"));
         }
 
-        List<Command> mList = LitePal.where("user_id=?",PreferencesUtils.getString(_mActivity,"id"))
+        List<Command> mList = LitePal.where("user_id=?",
+                        PreferencesUtils.getString(_mActivity,"id"))
                 .find(Command.class);
         adapter2.setNewData(mList);
     }
@@ -75,9 +76,11 @@ public class F4 extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
-        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"name"))) {
+        // for user who first register and login to this app, initialize nickname and profile head.
+        /*if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"name"))) {
             nickname.setText(PreferencesUtils.getString(_mActivity,"name"));
-        }
+        }*/
+
         tab.addTab(tab.newTab().setText("My Post"));
         tab.addTab(tab.newTab().setText("Liked"));
         adapter2 = new Adapter2(R.layout.adapter_2);

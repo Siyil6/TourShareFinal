@@ -10,4 +10,6 @@
     <string name="register">Register</string>
     <string name="log_out">Log Out</string>
     <string name="default_sig">This guy is lazy</string>
+    <drawable name="clr_normal">#A4ADB3</drawable>
+    <drawable name="clr_pressed">#0F40F4</drawable>
 </resources>

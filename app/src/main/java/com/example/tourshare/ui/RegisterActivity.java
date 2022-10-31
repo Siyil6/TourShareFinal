@@ -1,5 +1,6 @@
 package com.example.tourshare.ui;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatEditText;
 
 import com.example.tourshare.R;
@@ -21,6 +23,10 @@ import com.example.tourshare.bean.User;
 
 import org.litepal.LitePal;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -35,6 +41,7 @@ public class RegisterActivity extends BaseActivity {
     @BindView(R.id.policyAgree) CheckBox policyAgree;
     private boolean isCk = false;
     private final String tag = "Register activity";
+    private FirebaseAuth mAuth;
     @Override
     protected int getContentViewLayoutID() {
         return R.layout.activity_register;
@@ -45,6 +52,7 @@ public class RegisterActivity extends BaseActivity {
         super.initView(savedInstanceState);
         Log.i(tag,"register page launched");
         // monitoring policy agree states
+        mAuth = FirebaseAuth.getInstance();
         policyAgree.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b){
                 isCk = true;
@@ -98,6 +106,26 @@ public class RegisterActivity extends BaseActivity {
                     MToastUtils.ShortToast("The account already exists");
                     return;
                 }
+                ProgressDialog pd = new ProgressDialog(RegisterActivity.this);
+                pd.setTitle("loading");
+                pd.setCancelable(false);
+                pd.create();
+                pd.show();
+                mAuth.createUserWithEmailAndPassword(getText(emailEdit),
+                                getText(passwordEdit))
+                        .addOnCompleteListener(this, task -> {
+                            Log.d("=======", "createUser:onComplete:" + task.isSuccessful());
+                            pd.dismiss();
+                            if (task.isSuccessful()) {
+                                User u = new User(getText(usernameEdit),getText(emailEdit),
+                                        getText(passwordEdit));
+                                u.save();
+                                MToastUtils.ShortToast("register success");
+                                finish();
+                            } else {
+                                MToastUtils.ShortToast("register Failed"+task.getException().toString());
+                            }
+                        });
                 User u = new User(getText(usernameEdit),getText(emailEdit),getText(passwordEdit));
                 u.save();
                 MToastUtils.ShortToast("register success");

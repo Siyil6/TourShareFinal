@@ -71,7 +71,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginLeft="@dimen/dp_45"
         android:layout_marginRight="@dimen/dp_45"
-        android:background="@drawable/radius8_4"
+        android:background="@drawable/radius8_2"
         android:text="@string/sign_in"
         android:textAllCaps="false"
         android:textColor="@color/white"

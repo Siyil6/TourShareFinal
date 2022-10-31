@@ -182,6 +182,7 @@ public class SettingActivity extends BaseActivity {
                 break;
             case R.id.log_out:
                 startToActivity(LoginActivity.class);
+                finish();
                 break;
         }
     }

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "615779058671",
+    "project_id": "tourshare-48eba",
+    "storage_bucket": "tourshare-48eba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615779058671:android:390ad2008d60b6c53aec1a",
+        "android_client_info": {
+          "package_name": "com.example.tourshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615779058671-7pnv3osf6asq0tnos5589bilbmqhsm8o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tourshare",
+            "certificate_hash": "da66156b4c3adc389e6f7ea28346e3eb63536453"
+          }
+        },
+        {
+          "client_id": "615779058671-qh4odlu4n6mrql1lcrki3tcqsr2r4lr8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tourshare",
+            "certificate_hash": "e4a8c19a32dd10fb9e1d1004861be9bc60a479b4"
+          }
+        },
+        {
+          "client_id": "615779058671-dbhr52a7nq8ql61396r38qd9ajqh2kjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCamu9iHOJrX7-9Rbf8_XCNYCK90MX0oWE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615779058671-dbhr52a7nq8ql61396r38qd9ajqh2kjg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
