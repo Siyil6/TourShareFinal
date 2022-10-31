@@ -83,7 +83,7 @@ public class SearchActivity extends BaseActivity {
                     if ( type==1){
                         adapter.setNewData(LitePal.where("title like ?","%" + getText(edt_search) + "%").find(Command.class));
                     }else {
-                        adapter4.setNewData(LitePal.where("name like ?","%" + getText(edt_search) + "%").find(User.class));
+                        adapter4.setNewData(LitePal.where("name like ? or nickname like ?","%" + getText(edt_search) + "%", "%" + getText(edt_search) + "%").find(User.class));
                     }
                     return true;
                 }else {

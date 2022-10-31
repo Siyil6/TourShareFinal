@@ -10,19 +10,19 @@ public class User extends LitePalSupport {
     private String pwd;
     private String icon;
     private String des;
+    private String nickname;
 
-    public User(String name, String email, String pwd ) {
+    public User(String name, String email, String pwd) {
         this.name = name;
         this.email = email;
         this.pwd = pwd;
-
     }
-    public User(String name, String email, String pwd,String icon) {
+
+    public User(String name, String email, String pwd, String icon) {
         this.name = name;
         this.email = email;
         this.pwd = pwd;
         this.icon = icon;
-
     }
 
     public String getDes() {

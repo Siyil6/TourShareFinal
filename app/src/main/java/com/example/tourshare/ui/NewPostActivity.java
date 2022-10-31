@@ -88,7 +88,7 @@ public class NewPostActivity extends BaseActivity {
                     sb.append(i.getIcon()+",");
                 }
                 Command c = new Command(PreferencesUtils.getString(NewPostActivity.this,"id"),
-                        PreferencesUtils.getString(NewPostActivity.this,"nick"),
+                        TextUtils.isEmpty(PreferencesUtils.getString(NewPostActivity.this,"nick")) ? PreferencesUtils.getString(NewPostActivity.this,"name") : PreferencesUtils.getString(NewPostActivity.this,"nick"),
                         PreferencesUtils.getString(NewPostActivity.this,"icon"),getText(edt_1), CheckGetUtil.stampToDate(System.currentTimeMillis())
                         ,sb.toString(),getText(tv_l));
                 c.save();
@@ -155,7 +155,7 @@ public class NewPostActivity extends BaseActivity {
         if (location != null) {
             tv_l.setText(GPSUtils.getLocalCity());
         } else {
-            tv_l.setText("Unknown");
+            tv_l.setText("unknow");
         }
     }
     @OnClick({R.id.iv_add})
