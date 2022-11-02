@@ -3,15 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <ImageView
         android:id="@+id/iv_1"
         android:layout_width="@dimen/dp_36"
         android:layout_height="@dimen/dp_36"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@mipmap/ic_launcher"
+        android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginTop="@dimen/dp_10"
-        android:layout_marginLeft="@dimen/dp_12"/>
+        android:background="@mipmap/icon_tour"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/nickname"
         android:layout_width="wrap_content"
