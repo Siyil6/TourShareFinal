@@ -82,7 +82,7 @@ public class LoginActivity extends BaseActivity {
                         //FirebaseUser user = mAuth.getCurrentUser();
                         pd.dismiss();
                         writeToLocal();
-                        finish();
+
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(tag, "signInWithEmail:failure", task.getException());
@@ -103,10 +103,10 @@ public class LoginActivity extends BaseActivity {
             PreferencesUtils.putBoolean(LoginActivity.this,"login",true);
             PreferencesUtils.putBoolean(LoginActivity.this,"rememberPwd",
                     rememberPwd.isChecked());
-            startToActivity(MainActivity.class);
         }else {
-            MToastUtils.ShortToast("The account or password is incorrect");
+            //MToastUtils.ShortToast("The account or password is incorrect");
         }
+        startToActivityThenKill(MainActivity.class);
     }
 
 }

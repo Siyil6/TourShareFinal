@@ -100,8 +100,8 @@ public class RegisterActivity extends BaseActivity {
                     MToastUtils.ShortToast("Please Agree to policy!");
                     return;
                 }
-                User user = LitePal.where("name=? and pwd=?", getText(usernameEdit),
-                        getText(emailEdit)).findFirst(User.class);
+                User user = LitePal.where("email=? and pwd=?", getText(usernameEdit),
+                        getText(passwordEdit)).findFirst(User.class);
                 if (user!=null){
                     MToastUtils.ShortToast("The account already exists");
                     return;
