@@ -76,9 +76,6 @@ public class SettingActivity extends BaseActivity {
         List<User> users = LitePal.where("id=?", String.valueOf(user_id)).find(User.class);
         if (users.size() > 0) {
             User user1 = users.get(0);
-            /*Log.i(tag,user1.getName());
-            Log.i(tag,user1.getNickname());
-            Log.i(tag,user1.getDes());*/
             if (!TextUtils.isEmpty(user1.getNickname())) {
                 nickname = user1.getNickname();
                 des = user1.getDes();
@@ -196,12 +193,6 @@ public class SettingActivity extends BaseActivity {
                             PreferencesUtils.getString(SettingActivity.this,"id")),des);
                     SqliteUtils.updateUserDes(Long.parseLong(
                             PreferencesUtils.getString(SettingActivity.this,"id")),des);
-
-                    /*PreferencesUtils.putString(SettingActivity.this,"spare des",des);
-                    SqliteUtils.updateCommand(Long.parseLong(
-                            PreferencesUtils.getString(SettingActivity.this,"id")),des);
-                    SqliteUtils.updateSparedDes(Long.parseLong(
-                            PreferencesUtils.getString(SettingActivity.this,"id")),des);*/
                 });
                 c.create();
                 c.show();

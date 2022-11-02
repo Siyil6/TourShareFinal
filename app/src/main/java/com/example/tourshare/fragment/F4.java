@@ -95,12 +95,6 @@ public class F4 extends BaseFragment {
         else if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"name"))) {
             nickname.setText(PreferencesUtils.getString(_mActivity,"name"));
         }
-       /* if (!TextUtils.isEmpty(SqliteUtils.) {
-            tv_2.setText(PreferencesUtils.getString(_mActivity,"des"));
-        }*/
-
-
-
 
         tab.addTab(tab.newTab().setText("My Post"));
         tab.addTab(tab.newTab().setText("Liked"));

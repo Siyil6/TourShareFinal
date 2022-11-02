@@ -92,6 +92,8 @@ public class LoginActivity extends BaseActivity {
             PreferencesUtils.putString(LoginActivity.this,"id",user.getId()+"");
             PreferencesUtils.putString(LoginActivity.this,"name",user.getName());
             PreferencesUtils.putString(LoginActivity.this,"email",user.getEmail());
+            PreferencesUtils.putString(LoginActivity.this,"des",user.getDes());
+            PreferencesUtils.putString(LoginActivity.this,"nickname",user.getNickname());
             PreferencesUtils.putBoolean(LoginActivity.this,"login",true);
             PreferencesUtils.putBoolean(LoginActivity.this,"rememberPwd",
                     rememberPwd.isChecked());
