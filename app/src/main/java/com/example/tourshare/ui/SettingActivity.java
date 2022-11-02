@@ -27,12 +27,16 @@ import com.example.tourshare.MainActivity;
 import com.example.tourshare.R;
 import com.example.tourshare.base.BaseActivity;
 import com.example.tourshare.bean.SqliteUtils;
+import com.example.tourshare.bean.User;
 import com.example.tourshare.utils.PreferencesUtils;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.engine.impl.GlideEngine;
 import com.zhihu.matisse.internal.entity.CaptureStrategy;
 
+import org.litepal.LitePal;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -46,29 +50,42 @@ public class SettingActivity extends BaseActivity {
     TextView tv_user_des;
     @BindView(R.id.tv_des)
     TextView tv_des;
+    private long user_id;
     private String path="",nickname = "";
+
     @Override
     protected int getContentViewLayoutID() {
         return R.layout.activity_setting;
     }
 
     @Override
-    protected void initView(Bundle savedInstanceState) {
-        super.initView(savedInstanceState);
-        setTVTitle("user Setting",0,0);
-        nickname = TextUtils.isEmpty(PreferencesUtils.getString(this,"nick"))
-                ?"":PreferencesUtils.getString(this,"nick");
-        tv_user_nickname.setText(nickname);
-        Glide.with(this).load(PreferencesUtils.getString(this,"icon")).
-                placeholder(R.mipmap.png_head).into(iv_updatehead);
-    }
-
-    @Override
     protected void initData() {
         super.initData();
+        user_id  =  Long.parseLong(getIntent().getStringExtra("user_id"));
+        Log.d("TAG", "initData: user_id "+user_id);
         if (!TextUtils.isEmpty(PreferencesUtils.getString(this,"des"))){
             tv_user_des.setText(PreferencesUtils.getString(this,"des"));
         }
+        initView();
+    }
+
+     void initView() {
+        setTVTitle("user Setting",0,0);
+
+        List<User> users = LitePal.where("id=?", String.valueOf(user_id)).find(User.class);
+        if (users.size() > 0) {
+            User user1 = users.get(0);
+            if (!TextUtils.isEmpty(user1.getNickname())) {
+                nickname = user1.getNickname();
+            } else {
+                nickname = "";
+            }
+        }
+
+        tv_user_nickname.setText(nickname);
+
+        Glide.with(this).load(PreferencesUtils.getString(this,"icon")).
+                placeholder(R.mipmap.png_head).into(iv_updatehead);
     }
 
     @Override
@@ -131,7 +148,6 @@ public class SettingActivity extends BaseActivity {
                 }else{
                     ActivityCompat.requestPermissions(SettingActivity.this,new String[]{Manifest.permission.CAMERA},1);
                 }
-
                 break;
             case R.id.re_user_nickname:
                 AlertDialog.Builder b = new AlertDialog.Builder(SettingActivity.this);
@@ -150,8 +166,8 @@ public class SettingActivity extends BaseActivity {
                         nickname = getText(edt);
                         tv_user_nickname.setText(nickname);
                         PreferencesUtils.putString(SettingActivity.this,"nick",nickname);
-                        SqliteUtils.updateCommand(Long.parseLong(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
-                        SqliteUtils.updateUserNickname(Long.parseLong(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
+                        SqliteUtils.updateCommand(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
+                        SqliteUtils.updateUserNickname(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
                     }
                 });
                 b.create();
@@ -175,18 +191,14 @@ public class SettingActivity extends BaseActivity {
                        String  des = getText(edt1);
                         tv_user_des.setText(des);
                         PreferencesUtils.putString(SettingActivity.this,"des",des);
-                        SqliteUtils.updateUserDes(Long.parseLong(PreferencesUtils.getString(SettingActivity.this,"id")),des);
+                        SqliteUtils.updateUserDes(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),des);
                     }
                 });
                 c.create();
                 c.show();
                 break;
             case R.id.log_out:
-
-                Intent intent = new Intent(this,LoginActivity.class).
-                        setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                //startToActivityThenKill(LoginActivity.class);
+                startToActivity(LoginActivity.class);
                 break;
         }
     }

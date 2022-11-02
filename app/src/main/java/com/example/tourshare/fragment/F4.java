@@ -1,5 +1,6 @@
 package com.example.tourshare.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,8 +19,11 @@ import com.example.tourshare.adapter.Adapter2;
 import com.example.tourshare.base.BaseFragment;
 import com.example.tourshare.bean.Command;
 import com.example.tourshare.bean.LikeBean;
+import com.example.tourshare.bean.User;
 import com.example.tourshare.ui.PostContentActivity;
+import com.example.tourshare.ui.SearchActivity;
 import com.example.tourshare.ui.SettingActivity;
+import com.example.tourshare.ui.UserInfoActivity;
 import com.example.tourshare.utils.PreferencesUtils;
 import com.google.android.material.tabs.TabLayout;
 
@@ -39,7 +43,6 @@ public class F4 extends BaseFragment {
     @BindView(R.id.re_2) RecyclerView re2;
     @BindView(R.id.tab) TabLayout tab;
     private Adapter2 adapter2;
-    private String tag = "F4";
     public static F4 newInstance() {
         F4 fragment = new F4();
         return fragment;
@@ -52,7 +55,6 @@ public class F4 extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        Log.i(tag,"resume F4 page");
         if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"icon"))){
             Glide.with(_mActivity).asBitmap()
                     .load(PreferencesUtils.getString(_mActivity,"icon"))
@@ -64,34 +66,33 @@ public class F4 extends BaseFragment {
                     .load(R.mipmap.png_head)
                     .into(iv_1);
         }
-        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"nick"))){
-            nickname.setText(PreferencesUtils.getString(_mActivity,"nick"));
-        } if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"des"))){
+//        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"nick"))){
+//            nickname.setText(PreferencesUtils.getString(_mActivity,"nick"));
+//        }
+        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"des"))){
             tv_2.setText(PreferencesUtils.getString(_mActivity,"des"));
         }
 
-        List<Command> mList = LitePal.where("user_id=?",
-                        PreferencesUtils.getString(_mActivity,"id"))
+        List<Command> mList = LitePal.where("user_id=?",PreferencesUtils.getString(_mActivity,"id"))
                 .find(Command.class);
+        Log.d("TAG", "initData: user_id "+ PreferencesUtils.getString(_mActivity,"id"));
         adapter2.setNewData(mList);
+
     }
 
     @Override
     public void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
-        Log.i(tag,"initialize f4");
-        // for user who first register and login to this app, initialize nickname and profile head.
         if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"name"))) {
             nickname.setText(PreferencesUtils.getString(_mActivity,"name"));
         }
-
         tab.addTab(tab.newTab().setText("My Post"));
         tab.addTab(tab.newTab().setText("Liked"));
         adapter2 = new Adapter2(R.layout.adapter_2);
         LinearLayoutManager lm2 = new LinearLayoutManager(_mActivity);
         re2.setLayoutManager(lm2);
         re2.setAdapter(adapter2);
-        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()){
@@ -137,7 +138,9 @@ public class F4 extends BaseFragment {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_1:
-                startToActivity(SettingActivity.class);
+                Intent intent  = new Intent(_mActivity, SettingActivity.class);
+                intent.putExtra("user_id",PreferencesUtils.getString(_mActivity,"id"));
+                startActivity(intent);
                 break;
         }
     }

@@ -72,4 +72,8 @@ public class User extends LitePalSupport {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
+
+    public void setNickname(String nickname) {this.nickname = nickname;}
+
+    public String getNickname() {return this.nickname;}
 }

@@ -19,7 +19,6 @@ import com.example.tourshare.bean.Command;
 import com.example.tourshare.bean.LikeBean;
 import com.example.tourshare.bean.SqliteUtils;
 import com.example.tourshare.bean.User;
-import com.example.tourshare.utils.PreferencesUtils;
 import com.google.android.material.tabs.TabLayout;
 
 import org.litepal.LitePal;
@@ -74,17 +73,19 @@ public class UserInfoActivity extends BaseActivity {
                     .into(iv_1);
         }
 
-        if (!TextUtils.isEmpty(PreferencesUtils.getString(UserInfoActivity.this,"nick"))){
-            tv_1.setText(PreferencesUtils.getString(UserInfoActivity.this,"nick"));
-        } else {
-            tv_1.setText(PreferencesUtils.getString(UserInfoActivity.this,"name"));
-        }
-
         List<Command> mList = LitePal.where("user_id=?", String.valueOf(user_id))
                 .find(Command.class);
         adapter2.setNewData(mList);
 
-
+        List<User> users = LitePal.where("id=?", String.valueOf(user_id)).find(User.class);
+        if (users.size() > 0) {
+            User user1 = users.get(0);
+            if (!TextUtils.isEmpty(user1.getNickname())) {
+                tv_1.setText(user1.getNickname());
+            } else {
+                tv_1.setText(user1.getName());
+            }
+        }
     }
 
 
@@ -136,6 +137,5 @@ public class UserInfoActivity extends BaseActivity {
             }
         });
     }
-
 
 }
