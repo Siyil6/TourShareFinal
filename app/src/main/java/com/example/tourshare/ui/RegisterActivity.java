@@ -114,7 +114,7 @@ public class RegisterActivity extends BaseActivity {
                 mAuth.createUserWithEmailAndPassword(getText(emailEdit),
                                 getText(passwordEdit))
                         .addOnCompleteListener(this, task -> {
-                            Log.d("=======", "createUser:onComplete:" + task.isSuccessful());
+                            Log.d(tag, "createUser:onComplete:" + task.isSuccessful());
                             pd.dismiss();
                             if (task.isSuccessful()) {
                                 User u = new User(getText(usernameEdit),getText(emailEdit),

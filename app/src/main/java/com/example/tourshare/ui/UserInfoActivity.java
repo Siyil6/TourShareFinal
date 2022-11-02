@@ -19,6 +19,7 @@ import com.example.tourshare.bean.Command;
 import com.example.tourshare.bean.LikeBean;
 import com.example.tourshare.bean.SqliteUtils;
 import com.example.tourshare.bean.User;
+import com.example.tourshare.utils.PreferencesUtils;
 import com.google.android.material.tabs.TabLayout;
 
 import org.litepal.LitePal;
@@ -72,13 +73,16 @@ public class UserInfoActivity extends BaseActivity {
                     .load(R.mipmap.png_head)
                     .into(iv_1);
         }
-//        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"nick"))){
-//            tv_1.setText(PreferencesUtils.getString(_mActivity,"nick"));
-//        }
+
+        if (!TextUtils.isEmpty(PreferencesUtils.getString(UserInfoActivity.this,"nick"))){
+            tv_1.setText(PreferencesUtils.getString(UserInfoActivity.this,"nick"));
+        } else {
+            tv_1.setText(PreferencesUtils.getString(UserInfoActivity.this,"name"));
+        }
 
         List<Command> mList = LitePal.where("user_id=?", String.valueOf(user_id))
                 .find(Command.class);
-                adapter2.setNewData(mList);
+        adapter2.setNewData(mList);
 
 
     }

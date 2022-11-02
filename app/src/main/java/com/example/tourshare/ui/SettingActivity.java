@@ -131,6 +131,7 @@ public class SettingActivity extends BaseActivity {
                 }else{
                     ActivityCompat.requestPermissions(SettingActivity.this,new String[]{Manifest.permission.CAMERA},1);
                 }
+
                 break;
             case R.id.re_user_nickname:
                 AlertDialog.Builder b = new AlertDialog.Builder(SettingActivity.this);
@@ -149,8 +150,8 @@ public class SettingActivity extends BaseActivity {
                         nickname = getText(edt);
                         tv_user_nickname.setText(nickname);
                         PreferencesUtils.putString(SettingActivity.this,"nick",nickname);
-                        SqliteUtils.updateCommand(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
-                        SqliteUtils.updateUserNickname(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
+                        SqliteUtils.updateCommand(Long.parseLong(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
+                        SqliteUtils.updateUserNickname(Long.parseLong(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
                     }
                 });
                 b.create();
@@ -174,15 +175,18 @@ public class SettingActivity extends BaseActivity {
                        String  des = getText(edt1);
                         tv_user_des.setText(des);
                         PreferencesUtils.putString(SettingActivity.this,"des",des);
-                        SqliteUtils.updateUserDes(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),des);
+                        SqliteUtils.updateUserDes(Long.parseLong(PreferencesUtils.getString(SettingActivity.this,"id")),des);
                     }
                 });
                 c.create();
                 c.show();
                 break;
             case R.id.log_out:
-                startToActivity(LoginActivity.class);
-                finish();
+
+                Intent intent = new Intent(this,LoginActivity.class).
+                        setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                //startToActivityThenKill(LoginActivity.class);
                 break;
         }
     }

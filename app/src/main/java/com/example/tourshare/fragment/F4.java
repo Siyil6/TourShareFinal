@@ -2,6 +2,7 @@ package com.example.tourshare.fragment;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,6 +39,7 @@ public class F4 extends BaseFragment {
     @BindView(R.id.re_2) RecyclerView re2;
     @BindView(R.id.tab) TabLayout tab;
     private Adapter2 adapter2;
+    private String tag = "F4";
     public static F4 newInstance() {
         F4 fragment = new F4();
         return fragment;
@@ -50,6 +52,7 @@ public class F4 extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        Log.i(tag,"resume F4 page");
         if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"icon"))){
             Glide.with(_mActivity).asBitmap()
                     .load(PreferencesUtils.getString(_mActivity,"icon"))
@@ -76,6 +79,7 @@ public class F4 extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
+        Log.i(tag,"initialize f4");
         // for user who first register and login to this app, initialize nickname and profile head.
         if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"name"))) {
             nickname.setText(PreferencesUtils.getString(_mActivity,"name"));

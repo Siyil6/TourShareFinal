@@ -74,25 +74,19 @@ public class F1 extends BaseFragment {
         re2.setLayoutManager(lm2);
         re2.setAdapter(adapter2);
 
-        adapter2.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Bundle b = new Bundle();
-                b.putSerializable("data",((Command)adapter.getData().get(position)));
-                startToActivity(PostContentActivity.class,b);
-            }
+        adapter2.setOnItemClickListener((adapter, view, position) -> {
+            Bundle b = new Bundle();
+            b.putSerializable("data",((Command)adapter.getData().get(position)));
+            startToActivity(PostContentActivity.class,b);
         });
-        adapter2.setClickUserInfo(new Adapter2.ClickUserInfo() {
-            @Override
-            public void onclik(Command item) {
-                Log.d("TAG", "onclik: "+item);
-                Intent   intent  = new Intent(getActivity(), UserInfoActivity.class);
-                intent.putExtra("user_id",item.getUser_id());
-                startActivity(intent);
-            }
+        adapter2.setClickUserInfo(item -> {
+            Log.d("TAG", "onclick: "+item);
+            Intent   intent  = new Intent(getActivity(), UserInfoActivity.class);
+            intent.putExtra("user_id",item.getUser_id());
+            startActivity(intent);
         });
 
-        tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()){
