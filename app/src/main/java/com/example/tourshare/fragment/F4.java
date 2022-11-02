@@ -19,6 +19,7 @@ import com.example.tourshare.adapter.Adapter2;
 import com.example.tourshare.base.BaseFragment;
 import com.example.tourshare.bean.Command;
 import com.example.tourshare.bean.LikeBean;
+import com.example.tourshare.bean.SqliteUtils;
 import com.example.tourshare.bean.User;
 import com.example.tourshare.ui.PostContentActivity;
 import com.example.tourshare.ui.SearchActivity;
@@ -43,14 +44,18 @@ public class F4 extends BaseFragment {
     @BindView(R.id.re_2) RecyclerView re2;
     @BindView(R.id.tab) TabLayout tab;
     private Adapter2 adapter2;
+    private String tag = "F4";
     public static F4 newInstance() {
         F4 fragment = new F4();
+
         return fragment;
     }
     @Override
     protected int getContentViewLayoutID() {
+
         return R.layout.f4;
     }
+
 
     @Override
     public void onResume() {
@@ -66,9 +71,9 @@ public class F4 extends BaseFragment {
                     .load(R.mipmap.png_head)
                     .into(iv_1);
         }
-//        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"nick"))){
-//            nickname.setText(PreferencesUtils.getString(_mActivity,"nick"));
-//        }
+        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"nickname"))){
+            nickname.setText(PreferencesUtils.getString(_mActivity,"nickname"));
+        }
         if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"des"))){
             tv_2.setText(PreferencesUtils.getString(_mActivity,"des"));
         }
@@ -83,9 +88,20 @@ public class F4 extends BaseFragment {
     @Override
     public void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
-        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"name"))) {
+
+        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"nickname"))) {
+            nickname.setText(PreferencesUtils.getString(_mActivity,"nickname"));
+        }
+        else if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"name"))) {
             nickname.setText(PreferencesUtils.getString(_mActivity,"name"));
         }
+       /* if (!TextUtils.isEmpty(SqliteUtils.) {
+            tv_2.setText(PreferencesUtils.getString(_mActivity,"des"));
+        }*/
+
+
+
+
         tab.addTab(tab.newTab().setText("My Post"));
         tab.addTab(tab.newTab().setText("Liked"));
         adapter2 = new Adapter2(R.layout.adapter_2);

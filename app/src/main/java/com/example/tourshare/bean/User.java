@@ -11,6 +11,8 @@ public class User extends LitePalSupport {
     private String icon;
     private String des;
     private String nickname;
+    private String iconSpare;
+    private String desSpare;
 
     public User(String name, String email, String pwd) {
         this.name = name;
@@ -76,4 +78,12 @@ public class User extends LitePalSupport {
     public void setNickname(String nickname) {this.nickname = nickname;}
 
     public String getNickname() {return this.nickname;}
+
+    public String getIconSpare() {
+        return iconSpare;
+    }
+
+    public String getDesSpare() {
+        return desSpare;
+    }
 }

@@ -51,7 +51,8 @@ public class SettingActivity extends BaseActivity {
     @BindView(R.id.tv_des)
     TextView tv_des;
     private long user_id;
-    private String path="",nickname = "";
+    private String path="",nickname = "",des="the guy is lazy";
+    private String tag = "setting";
 
     @Override
     protected int getContentViewLayoutID() {
@@ -63,9 +64,9 @@ public class SettingActivity extends BaseActivity {
         super.initData();
         user_id  =  Long.parseLong(getIntent().getStringExtra("user_id"));
         Log.d("TAG", "initData: user_id "+user_id);
-        if (!TextUtils.isEmpty(PreferencesUtils.getString(this,"des"))){
+        /*if (!TextUtils.isEmpty(PreferencesUtils.getString(this,"des"))){
             tv_user_des.setText(PreferencesUtils.getString(this,"des"));
-        }
+        }*/
         initView();
     }
 
@@ -75,14 +76,20 @@ public class SettingActivity extends BaseActivity {
         List<User> users = LitePal.where("id=?", String.valueOf(user_id)).find(User.class);
         if (users.size() > 0) {
             User user1 = users.get(0);
+            /*Log.i(tag,user1.getName());
+            Log.i(tag,user1.getNickname());
+            Log.i(tag,user1.getDes());*/
             if (!TextUtils.isEmpty(user1.getNickname())) {
                 nickname = user1.getNickname();
-            } else {
-                nickname = "";
+                des = user1.getDes();
+            }
+            if (!TextUtils.isEmpty(user1.getDes())){
+                des = user1.getDes();
             }
         }
 
         tv_user_nickname.setText(nickname);
+        tv_user_des.setText(des);
 
         Glide.with(this).load(PreferencesUtils.getString(this,"icon")).
                 placeholder(R.mipmap.png_head).into(iv_updatehead);
@@ -154,21 +161,16 @@ public class SettingActivity extends BaseActivity {
                 b.setTitle("Please Enter your nickname");
                 EditText edt = new EditText(SettingActivity.this);
                 b.setView(edt);
-                b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
-                b.setPositiveButton("Are you sure to make change", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        nickname = getText(edt);
-                        tv_user_nickname.setText(nickname);
-                        PreferencesUtils.putString(SettingActivity.this,"nick",nickname);
-                        SqliteUtils.updateCommand(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
-                        SqliteUtils.updateUserNickname(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
-                    }
+                b.setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss());
+                b.setPositiveButton("Are you sure to make change", (dialogInterface, i) -> {
+                    nickname = getText(edt);
+                    tv_user_nickname.setText(nickname);
+                    PreferencesUtils.putString(SettingActivity.this,"nickname",nickname);
+                    SqliteUtils.updateCommand(Long.parseLong(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
+                    SqliteUtils.updateUserNickname(Long.parseLong(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
+                    PreferencesUtils.putString(SettingActivity.this,"name",nickname);
+                    SqliteUtils.updateCommand(Long.parseLong(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
+                    SqliteUtils.updateUserName(Long.parseLong(PreferencesUtils.getString(SettingActivity.this,"id")),nickname);
                 });
                 b.create();
                 b.show();
@@ -185,20 +187,32 @@ public class SettingActivity extends BaseActivity {
                         dialogInterface.dismiss();
                     }
                 });
-                c.setPositiveButton("Are you sure to change?", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                       String  des = getText(edt1);
-                        tv_user_des.setText(des);
-                        PreferencesUtils.putString(SettingActivity.this,"des",des);
-                        SqliteUtils.updateUserDes(Long.valueOf(PreferencesUtils.getString(SettingActivity.this,"id")),des);
-                    }
+                c.setPositiveButton("Are you sure to change?", (dialogInterface, i) -> {
+
+                    des = getText(edt1);
+                    tv_user_des.setText(des);
+                    PreferencesUtils.putString(SettingActivity.this,"des",des);
+                    SqliteUtils.updateCommand(Long.parseLong(
+                            PreferencesUtils.getString(SettingActivity.this,"id")),des);
+                    SqliteUtils.updateUserDes(Long.parseLong(
+                            PreferencesUtils.getString(SettingActivity.this,"id")),des);
+
+                    /*PreferencesUtils.putString(SettingActivity.this,"spare des",des);
+                    SqliteUtils.updateCommand(Long.parseLong(
+                            PreferencesUtils.getString(SettingActivity.this,"id")),des);
+                    SqliteUtils.updateSparedDes(Long.parseLong(
+                            PreferencesUtils.getString(SettingActivity.this,"id")),des);*/
                 });
                 c.create();
                 c.show();
                 break;
             case R.id.log_out:
-                startToActivity(LoginActivity.class);
+                PreferencesUtils.cleanString(this,"icon",null);
+                PreferencesUtils.cleanString(this,"nickname",null);
+                PreferencesUtils.cleanString(this,"des",null);
+                Intent intent = new Intent(this,LoginActivity.class).
+                        setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }

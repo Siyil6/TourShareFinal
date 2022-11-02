@@ -24,7 +24,7 @@ public abstract class BaseFragment extends SupportFragment {
     protected Bundle bundle;
     protected Dialog mMaterialDialog = null;
     private Unbinder unbinder;
-    protected boolean isVisable;
+    protected boolean isVisible;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,7 +75,7 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public void onSupportVisible() {
         super.onSupportVisible();
-        isVisable = true;
+        isVisible = true;
     }
 
 

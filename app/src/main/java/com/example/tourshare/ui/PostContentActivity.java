@@ -63,7 +63,7 @@ public class PostContentActivity extends BaseActivity {
             iv_dz.setBackgroundResource(R.mipmap.dz2);
         }
         if (TextUtils.isEmpty(item.getAddress())){
-            tv_3.setText("unKnow");
+            tv_3.setText("unknown");
         }else {
             tv_3.setText(item.getAddress());
         }
@@ -105,7 +105,7 @@ public class PostContentActivity extends BaseActivity {
                 break;
             case R.id.btn_pl:
                 CommentBean c = new CommentBean(u_id,PreferencesUtils.getString(PostContentActivity.this,"icon"),
-                        PreferencesUtils.getString(PostContentActivity.this,"nick"),getText(edt_pl),
+                        PreferencesUtils.getString(PostContentActivity.this,"nickname"),getText(edt_pl),
                         CheckGetUtil.stampToDate(System.currentTimeMillis()),item.getId()+"");
                 c.save();
                 cList.add(c);

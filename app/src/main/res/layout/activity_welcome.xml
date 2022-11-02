@@ -38,7 +38,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="@dimen/dp_124"
         android:layout_marginEnd="36dp"
-        android:background="@color/gradient_4"
+        android:background="@drawable/radius8_2"
         android:text="Already have an account"
         android:textAllCaps="false"
         android:textColor="@color/white"

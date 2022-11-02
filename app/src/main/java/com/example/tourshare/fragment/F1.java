@@ -50,8 +50,8 @@ public class F1 extends BaseFragment {
         List<Command> mList = LitePal.order("pl desc").find(Command.class);
         List<Command> mList1 = new ArrayList<>();
         if (mList.size()>0){
-            for (int i=0;i<1;i++){
-                mList1.add(mList.get(new Random().nextInt(mList.size())));
+            for (int i=0;i<mList.size();i++){
+                mList1.add(mList.get(i));
             }
             adapter1.setNewData(mList1);
         }

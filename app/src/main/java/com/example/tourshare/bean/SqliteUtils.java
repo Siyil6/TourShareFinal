@@ -46,6 +46,8 @@ public class SqliteUtils {
     }
 
 
+
+
     public static void updateUserDes(long user_id, String des) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("des", des);
@@ -56,6 +58,17 @@ public class SqliteUtils {
         ContentValues contentValues = new ContentValues();
         contentValues.put("nickname", nickname);
         LitePal.update(User.class, contentValues, user_id);
+    }
+    public static void updateUserName(long user_id, String name) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", name);
+        LitePal.update(User.class, contentValues, user_id);
+    }
+    public static void updateSparedDes(long user_id, String spareDes) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("spare des", spareDes);
+        LitePal.update(User.class, contentValues, user_id);
+
     }
 
     public static void updateCommand(long user_id, String nickName) {
