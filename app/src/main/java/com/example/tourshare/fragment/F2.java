@@ -101,7 +101,7 @@ public class F2 extends BaseFragment {
     };
 
     /**
-     * 动作执行
+     * action performed
      */
 
     Handler handler = new Handler() {
@@ -120,7 +120,6 @@ public class F2 extends BaseFragment {
         }
     };
 
-    //定义摇一摇动画动画
 
     private void startAnim() {
         AnimationSet animup = new AnimationSet(true);

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gradient_0">
     <com.example.tourshare.wiget.NoScrollViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
@@ -16,6 +17,7 @@
         android:id="@+id/bottom_tab_layout"
         android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/gradient_4"
         app:tabIndicatorHeight="0dp"
         app:tabMode="fixed"
         app:tabMaxWidth="0dp"

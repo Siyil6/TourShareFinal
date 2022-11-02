@@ -177,4 +177,10 @@
     <color name="default_line_indicator_selected_color">#FF33B5E5</color>
     <color name="default_line_indicator_unselected_color">#FFBBBBBB</color>
     <bool name="default_line_indicator_centered">true</bool>
+
+    <color name = "gradient_0">#F3F8F1</color>
+    <color name = "gradient_1">#DDE4CC</color>
+    <color name = "gradient_2">#C5E7D5</color>
+    <color name = "gradient_3">#BACFBC</color>
+    <color name = "gradient_4">#A1BEB1</color>
 </resources>

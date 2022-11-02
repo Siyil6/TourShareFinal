@@ -4,21 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
+    android:background="@color/gradient_0"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <include layout="@layout/common_mtoolbar"
         style="@style/toolbarStyle"/>
+
     <TextView
         android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:text="MyTour"
         android:textColor="#333333"
         android:textSize="@dimen/dp_36"
-        android:text="MyTour"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/re_comon_bar"
-        android:layout_marginTop="@dimen/dp_72"/>
+        app:layout_constraintTop_toBottomOf="@+id/re_comon_bar" />
     <TextView
         android:id="@+id/tv_2"
         android:layout_width="wrap_content"
@@ -33,20 +34,22 @@
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/username"
-        android:maxLines="1"
-        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
-        app:layout_constraintTop_toBottomOf="@+id/tv_2"
-        android:layout_marginTop="@dimen/dp_124"
-        android:layout_marginLeft="@dimen/dp_36"
-        android:layout_marginRight="@dimen/dp_36"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="36dp"
         android:background="@drawable/radius8_1"
         android:drawableLeft="@mipmap/yh"
-        android:textColorHint="@color/color_999999"
-        android:hint="Username"
         android:drawablePadding="@dimen/dp_12"
-        android:paddingLeft="@dimen/dp_12"/>
+        android:hint="Username"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/dp_12"
+        android:textColorHint="@color/color_999999"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_2" />
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/password"
         android:maxLines="1"
@@ -68,16 +71,17 @@
         android:id="@+id/sign_in"
         android:layout_width="match_parent"
         android:layout_height="34dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="100dp"
-        android:layout_marginLeft="@dimen/dp_45"
-        android:layout_marginRight="@dimen/dp_45"
-        android:background="@drawable/radius8_2"
+        android:layout_marginEnd="36dp"
+        android:background="@color/gradient_4"
         android:text="@string/sign_in"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/dp_12"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        tools:layout_editor_absoluteX="52dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <androidx.appcompat.widget.AppCompatCheckBox
         android:id="@+id/remember"
@@ -105,4 +109,15 @@
         android:textSize="@dimen/dp_12"
         android:textAllCaps="false"
         android:text="@string/register"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.409"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_no_color" />
 </androidx.constraintlayout.widget.ConstraintLayout>

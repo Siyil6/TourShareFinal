@@ -11,10 +11,10 @@ public class SqliteUtils {
     private static String TAG = SqliteUtils.class.getSimpleName();
 
     /**
-     * 插入搜索历史
+     * Insert search history
      *
-     * @param user_id        搜索人
-     * @param search_content 搜索内容
+     * @param user_id        person who we look for
+     * @param search_content content
      */
     public static void insertSearchHis(long user_id, String search_content) {
         Log.d(TAG, "insertSearchHis: ");
@@ -26,20 +26,20 @@ public class SqliteUtils {
     }
 
     /**
-     * 依据用户查询搜索历史
+     * search history dependent on user
      *
-     * @param user_id 搜索人
-     * @return 用户的搜索历史
+     * @param user_id search target
+     * @return search history
      */
     public static List<SearchHis> selectSearchHisByUser(long user_id) {
         return LitePal.where("user_id = ?", String.valueOf(user_id)).order("create_timestamp desc  ").limit(10).find(SearchHis.class);
     }
 
     /**
-     * 已经用户id 查询用户信息
+     * Know user id, looking for information
      *
      * @param user_id
-     * @return 对应的用户信息
+     * @return related user information
      */
     public static List<User> selectUserById(long user_id) {
         return LitePal.where("id = ? ", String.valueOf(user_id)).find(User.class);

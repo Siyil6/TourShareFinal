@@ -87,7 +87,7 @@ public class F4 extends BaseFragment {
         LinearLayoutManager lm2 = new LinearLayoutManager(_mActivity);
         re2.setLayoutManager(lm2);
         re2.setAdapter(adapter2);
-        tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()){
