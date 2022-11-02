@@ -98,8 +98,7 @@ public abstract class BaseActivity extends SupportActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        hideLoadingDialog();
-//        dialog = null;
+
         if(bindEventBus()){
             EventBus.getDefault().unregister(this);
         }

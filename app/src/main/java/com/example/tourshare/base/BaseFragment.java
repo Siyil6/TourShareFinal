@@ -99,7 +99,7 @@ public abstract class BaseFragment extends SupportFragment {
         }
     }
 
-    // 是否启用EventBus
+
     protected boolean bindEventBus(){
         return false;
     }
@@ -108,11 +108,11 @@ public abstract class BaseFragment extends SupportFragment {
         return null;
     }
 
-    // 空数据View
+
     public void setEmptyLoading(){
     }
 
-    // 布局Layout
+
     protected abstract int getContentViewLayoutID();
 
     /**

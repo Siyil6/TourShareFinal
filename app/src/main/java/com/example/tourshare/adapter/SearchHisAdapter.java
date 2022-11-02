@@ -38,7 +38,8 @@ public class SearchHisAdapter extends RecyclerView.Adapter<SearchHisAdapter.View
         TextView tv_item;
 
 
-        public ViewHolder(View view) {                       //参数view为RecycleView子项的最外层布局，可以从findviewbyid获取布局中的TextView实例
+        public ViewHolder(View view) {
+
             super(view);
             tv_item = (TextView) view.findViewById(R.id.tv_item);
 
@@ -46,14 +47,15 @@ public class SearchHisAdapter extends RecyclerView.Adapter<SearchHisAdapter.View
     }
 
 
-    @Override       //用于创建ViewHolder实例
+    @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);//将布局加载进来传入构造函数，创建ViewHolder实例
+        View view = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
+
         ViewHolder holder = new ViewHolder(view);
-        return holder;                                  //将ViewHolder实例返回
+        return holder;
     }
 
-    @Override       //用于对RecyclerView子项的数据进行赋值，在每个子项被滚动到屏幕内时执行
+    @Override
     public void onBindViewHolder(final ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         SearchHis searchHis = searchHisList.get(position);

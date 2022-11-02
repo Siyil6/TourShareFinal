@@ -77,9 +77,9 @@ public class F4 extends BaseFragment {
     public void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
         // for user who first register and login to this app, initialize nickname and profile head.
-        /*if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"name"))) {
+        if (!TextUtils.isEmpty(PreferencesUtils.getString(_mActivity,"name"))) {
             nickname.setText(PreferencesUtils.getString(_mActivity,"name"));
-        }*/
+        }
 
         tab.addTab(tab.newTab().setText("My Post"));
         tab.addTab(tab.newTab().setText("Liked"));
@@ -87,7 +87,7 @@ public class F4 extends BaseFragment {
         LinearLayoutManager lm2 = new LinearLayoutManager(_mActivity);
         re2.setLayoutManager(lm2);
         re2.setAdapter(adapter2);
-        tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()){
