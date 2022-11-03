@@ -59,41 +59,35 @@ public class NewPostActivity extends BaseActivity {
     protected void initView(Bundle savedInstanceState) {
         super.initView(savedInstanceState);
         gpsUtils = new GPSUtils(this);//Initialize GPS
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                mLocation = gpsUtils.getLocation();//Get location information
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        updateView(mLocation);
-                    }
-                });
-            }
+        new Thread(() -> {
+            mLocation = gpsUtils.getLocation();//Get location information
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    updateView(mLocation);
+                }
+            });
         }).start();
         iv_sub_title.setText("Send Post");
-        iv_sub_title.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (TextUtils.isEmpty(getText(edt_1))){
-                    MToastUtils.ShortToast("content can not be empty");
-                    return;
-                }
-                if (mList.size()==0){
-                    MToastUtils.ShortToast("please choose image");
-                    return;
-                }
-                StringBuffer sb = new StringBuffer();
-                for (ImageBean i:mList){
-                    sb.append(i.getIcon()+",");
-                }
-                Command c = new Command(PreferencesUtils.getString(NewPostActivity.this,"id"),
-                        TextUtils.isEmpty(PreferencesUtils.getString(NewPostActivity.this,"nick")) ? PreferencesUtils.getString(NewPostActivity.this,"name") : PreferencesUtils.getString(NewPostActivity.this,"nick"),
-                        PreferencesUtils.getString(NewPostActivity.this,"icon"),getText(edt_1), CheckGetUtil.stampToDate(System.currentTimeMillis())
-                        ,sb.toString(),getText(tv_l));
-                c.save();
-                finish();
+        iv_sub_title.setOnClickListener(view -> {
+            if (TextUtils.isEmpty(getText(edt_1))){
+                MToastUtils.ShortToast("content can not be empty");
+                return;
             }
+            if (mList.size()==0){
+                MToastUtils.ShortToast("please choose image");
+                return;
+            }
+            StringBuffer sb = new StringBuffer();
+            for (ImageBean i:mList){
+                sb.append(i.getIcon()+",");
+            }
+            Command c = new Command(PreferencesUtils.getString(NewPostActivity.this,"id"),
+                    TextUtils.isEmpty(PreferencesUtils.getString(NewPostActivity.this,"nick")) ? PreferencesUtils.getString(NewPostActivity.this,"name") : PreferencesUtils.getString(NewPostActivity.this,"nick"),
+                    PreferencesUtils.getString(NewPostActivity.this,"icon"),getText(edt_1), CheckGetUtil.stampToDate(System.currentTimeMillis())
+                    ,sb.toString(),getText(tv_l));
+            c.save();
+            finish();
         });
         mList = new ArrayList<>();
         GridLayoutManager gm = new GridLayoutManager(this,3);
@@ -101,12 +95,9 @@ public class NewPostActivity extends BaseActivity {
         re_1.setLayoutManager(gm);
         re_1.setAdapter(adapter);
 
-        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (!b){
-                    tv_l.setText("null");
-                }
+        sw.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (!b){
+                tv_l.setText("null");
             }
         });
     }
@@ -128,7 +119,7 @@ public class NewPostActivity extends BaseActivity {
                 .setOnSelectedListener((uriList, pathList) -> {
                     Log.e("onSelected", "onSelected: pathList=" + pathList);
                 })
-                .showSingleMediaType(true)//true表示不能同时显示图片和视频
+                .showSingleMediaType(true)//true means can't show picture and video simultaneously
                 .originalEnable(true)
                 .maxOriginalSize(10)
                 .autoHideToolbarOnSingleTap(true)

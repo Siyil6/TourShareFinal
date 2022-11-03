@@ -14,17 +14,17 @@ import java.util.List;
 
 
 public class ImageAdapter extends ReBaseRecyclerAdapter<ImageBean> {
-    private Context mcontext;
+    private final Context myContext;
 
     public ImageAdapter(Context context, List<ImageBean> list, int itemLayoutId) {
         super(context, list, itemLayoutId);
-        this.mcontext = context;
+        this.myContext = context;
     }
 
     @Override
     public void convert(ReViewHolder holder, ImageBean item, int position, boolean isScrolling) {
         Log.e("-------",item.getIcon());
-        Glide.with(mcontext).load(item.getIcon()).into((ImageView) holder.getView(R.id.iv_item));
+        Glide.with(myContext).load(item.getIcon()).into((ImageView) holder.getView(R.id.iv_item));
     }
 }
 

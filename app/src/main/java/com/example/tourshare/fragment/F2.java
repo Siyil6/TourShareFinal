@@ -64,16 +64,11 @@ public class F2 extends BaseFragment {
 
         sensorManager = (SensorManager) _mActivity.getSystemService(SENSOR_SERVICE);
         vibrator = (Vibrator) _mActivity.getSystemService(VIBRATOR_SERVICE);
-        edt_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startToActivity(SearchActivity.class);
-            }
-        });
+        edt_search.setOnClickListener(view -> startToActivity(SearchActivity.class));
     }
 
     /**
-     * 重力感应监听
+     * gravity listener
      */
     private SensorEventListener sensorEventListener = new SensorEventListener() {
         @Override
@@ -83,7 +78,9 @@ public class F2 extends BaseFragment {
             float x = values[0]; // x gravity，right is positive
             float y = values[1]; // y gravity，front is positive
             float z = values[2]; // z gravity，up is positive
-            Log.i(TAG, "Gravitational acceleration in the x-axis direction" + x + "；Gravitational acceleration in the y-axis direction" + y + "；Gravitational acceleration in the z-axis direction" + z);
+            /*Log.i(TAG, "Gravitational acceleration in the x-axis direction" + x + "；" +
+                    "Gravitational acceleration in the y-axis direction" + y + "；" +
+                    "Gravitational acceleration in the z-axis direction" + z);*/
             // Gravitational acceleration 40 shake
             int medumValue = 19;
             if (Math.abs(x) > medumValue || Math.abs(y) > medumValue || Math.abs(z) > medumValue) {
@@ -124,14 +121,17 @@ public class F2 extends BaseFragment {
     private void startAnim() {
         AnimationSet animup = new AnimationSet(true);
         TranslateAnimation animation0 = new TranslateAnimation(Animation.RELATIVE_TO_SELF,0f,
-                Animation.RELATIVE_TO_SELF, -0.5f,Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_SELF,0.f);
+                Animation.RELATIVE_TO_SELF, -0.5f,Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF,0.f);
         animation0.setDuration(300);
         TranslateAnimation animation1 = new TranslateAnimation(Animation.RELATIVE_TO_SELF,-0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f,Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_SELF,0.f);
+                Animation.RELATIVE_TO_SELF, 0.5f,Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF,0.f);
         animation1.setDuration(300);
         animation1.setStartOffset(300);
         TranslateAnimation animation2 = new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.5f,
-                Animation.RELATIVE_TO_SELF, 0f,Animation.RELATIVE_TO_SELF, 0f, Animation.RELATIVE_TO_SELF,0.f);
+                Animation.RELATIVE_TO_SELF, 0f,Animation.RELATIVE_TO_SELF, 0f,
+                Animation.RELATIVE_TO_SELF,0.f);
         animation2.setDuration(300);
         animation2.setStartOffset(600);
         animup.addAnimation(animation0);
@@ -161,7 +161,9 @@ public class F2 extends BaseFragment {
         super.onResume();
         if (sensorManager != null) {
             // The first parameter is the Listener, the second parameter is the resulting sensor type, and the third parameter value is the frequency at which sensor information is obtained
-            sensorManager.registerListener(sensorEventListener, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(sensorEventListener,
+                    sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                    SensorManager.SENSOR_DELAY_NORMAL);
         }
         initDrawRecyclerView();
     }
@@ -180,14 +182,13 @@ public class F2 extends BaseFragment {
     private    void  initDrawRecyclerView(){
 
 
-        List<SearchHis> searchHisList  = SqliteUtils.selectSearchHisByUser(Long.valueOf(PreferencesUtils.getString(getActivity(),"id")));
-        SearchHisAdapter searchHisAdapter  = new SearchHisAdapter(getActivity(),searchHisList,R.layout.search_his_item);
+        List<SearchHis> searchHisList  = SqliteUtils.selectSearchHisByUser(
+                Long.parseLong(PreferencesUtils.getString(getActivity(),"id")));
+        SearchHisAdapter searchHisAdapter  = new SearchHisAdapter(getActivity(),
+                searchHisList,R.layout.search_his_item);
         rv_his.setAdapter(searchHisAdapter);
-        searchHisAdapter.setClickCallBack(new SearchHisAdapter.ClickCallBack() {
-            @Override
-            public void onClick(int position, SearchHis searchHis) {
+        searchHisAdapter.setClickCallBack((position, searchHis) -> {
 
-            }
         });
 
 

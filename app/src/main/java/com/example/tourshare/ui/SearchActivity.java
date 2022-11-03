@@ -96,13 +96,10 @@ public class SearchActivity extends BaseActivity {
             }
             return false;
         });
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Bundle b = new Bundle();
-                b.putSerializable("data",((Command)adapter.getData().get(position)));
-                startToActivity(PostContentActivity.class,b);
-            }
+        adapter.setOnItemClickListener((adapter, view, position) -> {
+            Bundle b = new Bundle();
+            b.putSerializable("data",((Command)adapter.getData().get(position)));
+            startToActivity(PostContentActivity.class,b);
         });
         tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

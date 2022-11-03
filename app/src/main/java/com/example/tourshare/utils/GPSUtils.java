@@ -55,7 +55,8 @@ public class GPSUtils {
         // Set query conditions for obtaining geographic location information
         String bestProvider = mLocationManager.getBestProvider(getCriteria(), true);
         // get location information
-        // If the query request is not set, the parameter passed by the getLastKnownLocation method is LocationManager.GPS_PROVIDER
+        // If the query request is not set, the parameter passed by the
+        // getLastKnownLocation method is LocationManager.GPS_PROVIDER
         Location location = mLocationManager.getLastKnownLocation(bestProvider);
 //        getLocationData(location);
         mLocation = location;
@@ -74,8 +75,11 @@ public class GPSUtils {
         // it will be refreshed at any time
 
         // Update once every 1 second, or once the minimum displacement change exceeds 1 meter;
-        // Note: The update accuracy here is very low, it is recommended to start a Thread in the service, sleep(10000) in run; then execute handler.sendMessage() to update the location
-        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, locationListener);
+        // Note: The update accuracy here is very low,
+        // it is recommended to start a Thread in the service, sleep(10000) in run;
+        // then execute handler.sendMessage() to update the location
+        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                1000, 1, locationListener);
     }
 
     /**
@@ -107,7 +111,7 @@ public class GPSUtils {
     public static Location getLocation() {
         Log.e("---------","5555555");
         if (mLocation == null) {
-            Log.e("GPSUtils", "setLocationData: Get current location information is empty");
+            //Log.e("GPSUtils", "setLocationData: Get current location information is empty");
             return null;
         }
         return mLocation;
@@ -115,7 +119,7 @@ public class GPSUtils {
 
     public static String getLocalCity(){
         if (mLocation==null){
-            Log.e("GPSUtils", "getLocalCity: Get city information is empty");
+            //Log.e("GPSUtils", "getLocalCity: Get city information is empty");
             return "";
         }
         List<Address> result = getAddress(mLocation);
@@ -129,7 +133,7 @@ public class GPSUtils {
 
     public static String getAddressStr(){
         if (mLocation==null){
-            Log.e("GPSUtils", "getAddressStr: Get address details is empty");
+           // Log.e("GPSUtils", "getAddressStr: Get address details is empty");
             return "";
         }
         List<Address> result = getAddress(mLocation);
@@ -155,15 +159,15 @@ public class GPSUtils {
             switch (status) {
                 // When GPS status is visible
                 case LocationProvider.AVAILABLE:
-                    Log.i(TAG, "The current GPS status is visible");
+                    //Log.i(TAG, "The current GPS status is visible");
                     break;
                 // When the GPS status is out of service area
                 case LocationProvider.OUT_OF_SERVICE:
-                    Log.i(TAG, "The current GPS status is out of service area");
+                    //Log.i(TAG, "The current GPS status is out of service area");
                     break;
                 // When the GPS status is out of service
                 case LocationProvider.TEMPORARILY_UNAVAILABLE:
-                    Log.i(TAG, "The current GPS status is out of service");
+                    //Log.i(TAG, "The current GPS status is out of service");
                     break;
             }
         }

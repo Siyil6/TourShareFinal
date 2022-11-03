@@ -102,7 +102,7 @@ public class F4 extends BaseFragment {
         LinearLayoutManager lm2 = new LinearLayoutManager(_mActivity);
         re2.setLayoutManager(lm2);
         re2.setAdapter(adapter2);
-        tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()){
@@ -135,13 +135,10 @@ public class F4 extends BaseFragment {
 
             }
         });
-        adapter2.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Bundle b = new Bundle();
-                b.putSerializable("data",((Command)adapter.getData().get(position)));
-                startToActivity(PostContentActivity.class,b);
-            }
+        adapter2.setOnItemClickListener((adapter, view, position) -> {
+            Bundle b = new Bundle();
+            b.putSerializable("data",((Command)adapter.getData().get(position)));
+            startToActivity(PostContentActivity.class,b);
         });
     }
     @OnClick({R.id.iv_1})

@@ -39,13 +39,10 @@ public class SharkActivity extends BaseActivity {
         re.setAdapter(adapter);
         List<Command> mList = LitePal.order("random()").limit(3).find(Command.class);
         adapter.setNewData(mList);
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Bundle b = new Bundle();
-                b.putSerializable("data",((Command)adapter.getData().get(position)));
-                startToActivity(PostContentActivity.class,b);
-            }
+        adapter.setOnItemClickListener((adapter, view, position) -> {
+            Bundle b = new Bundle();
+            b.putSerializable("data",((Command)adapter.getData().get(position)));
+            startToActivity(PostContentActivity.class,b);
         });
     }
 }

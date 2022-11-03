@@ -62,22 +62,16 @@ public class Adapter2 extends BaseQuickAdapter<Command, BaseViewHolder> {
                 .setText(R.id.tv_2,item.getAddress())
                 .setText(R.id.tv_3,item.getTitle());
 
-        helper.getView(R.id.iv_1).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (clickUserInfo  !=null){
-                    clickUserInfo.onclik(item);
+        helper.getView(R.id.iv_1).setOnClickListener(view -> {
+            if (clickUserInfo  !=null){
+                clickUserInfo.onclik(item);
 
-                }
             }
         });
-        helper.getView(R.id.nickname).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (clickUserInfo  !=null){
-                    clickUserInfo.onclik(item);
+        helper.getView(R.id.nickname).setOnClickListener(view -> {
+            if (clickUserInfo  !=null){
+                clickUserInfo.onclik(item);
 
-                }
             }
         });
     }

@@ -51,7 +51,7 @@ public class UserInfoActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        user_id  =  Long.valueOf(getIntent().getStringExtra("user_id"));
+        user_id  =  Long.parseLong(getIntent().getStringExtra("user_id"));
         Log.d("TAG", "initData: user_id "+user_id);
         initView();
         initUserInfo();
@@ -97,7 +97,7 @@ public class UserInfoActivity extends BaseActivity {
         LinearLayoutManager lm2 = new LinearLayoutManager(this);
         re2.setLayoutManager(lm2);
         re2.setAdapter(adapter2);
-        tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()) {
@@ -128,13 +128,10 @@ public class UserInfoActivity extends BaseActivity {
 
             }
         });
-        adapter2.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+        adapter2.setOnItemClickListener((adapter, view, position) -> {
 //                Bundle b = new Bundle();
 //                b.putSerializable("data",((Command)adapter.getData().get(position)));
 //                startToActivity(PostContentActivity.class,b);
-            }
         });
     }
 

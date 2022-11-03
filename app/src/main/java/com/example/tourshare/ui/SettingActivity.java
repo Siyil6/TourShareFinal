@@ -178,12 +178,7 @@ public class SettingActivity extends BaseActivity {
                 c.setTitle("please enter your description");
                 EditText edt1 = new EditText(SettingActivity.this);
                 c.setView(edt1);
-                c.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                    }
-                });
+                c.setNegativeButton("Cancel", (dialogInterface, i) -> dialogInterface.dismiss());
                 c.setPositiveButton("Are you sure to change?", (dialogInterface, i) -> {
 
                     des = getText(edt1);
