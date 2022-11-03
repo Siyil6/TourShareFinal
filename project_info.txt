@@ -2,14 +2,16 @@
                     COMP90018 Programming Project Submission
 ################################################################################
 
-Group No: #
+Group No: #T01/16-3
 
 Group Members:
 
-1: [Username, Email] 
-2: [Username, Email] 
-3: [Username, Email] 
-4: [Username, Email] 
+1: [Tianjia Chen, tianjiac@student.unimelb.edu.au] 
+2: [Zhixuan Ye, zhixuany1@student.unimelb.edu.au] 
+3: [Xiaotian Zhang, xiaotianz4@student.unimelb.edu.au] 
+4: [Haolin Xu, haolinx1@student.unimelb.edu.au] 
+5: [Siyi Liu, siyil6@student.unimelb.edu.au] 
+6: [Han Xu, xuhx3@student.unimelb.edu.au] 
 
 YouTube Link:
 
