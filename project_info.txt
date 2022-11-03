@@ -13,10 +13,10 @@ Group Members:
 5: [Siyi Liu, siyil6@student.unimelb.edu.au] 
 6: [Han Xu, xuhx3@student.unimelb.edu.au] 
 
-YouTube Link:
+YouTube Link: https://youtu.be/oGzYHNLMdj8
 
-Publicity statement: We authorise the University of Melbourne to use material from our submission for publicity.
 
 README:
 
-Please include details on how to compile and run your APP.
+By click run on android studio, with google pixel4 (API30) enmulator.
+The app require user to register an account with remote firebase, and the login to the home page.
